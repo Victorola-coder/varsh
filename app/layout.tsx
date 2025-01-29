@@ -1,6 +1,7 @@
 import "./global.css";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
+import { Lato } from "next/font/google";
 import { AOS } from "./components/global";
 import { Navbar } from "./components/home";
 import type { Metadata, Viewport } from "next";
@@ -10,6 +11,13 @@ const cabinetGrotesk = localFont({
   variable: "--font-cabinet-grotesk",
   src: "./fonts/CabinetGrotesk-Variable.ttf",
   weight: "100 200 300 400 500 600 700 800 900",
+});
+
+const lato = Lato({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-lato",
+  weight: ["100", "300", "400", "700", "900"],
 });
 
 export const viewport: Viewport = {
@@ -93,7 +101,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`antialiased ${cabinetGrotesk.className}`}>
+      <body
+        className={`antialiased ${cabinetGrotesk.className} ${lato.variable}`}
+      >
         <Toaster richColors />
         <AOS />
         <Navbar />

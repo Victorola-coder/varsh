@@ -31,6 +31,8 @@ export default function Button(props: ButtonProps) {
           "bg-[#6B39FF] hover:bg-[#6B39FF]/80 rounded-[12px] active:bg-[#6B39FF]/90 text-white":
             variant === "primary",
           "bg-[#283142] rounded-[12px] text-[#FFFFFF]": variant === "google",
+          "bg-transparent border-[1.5px] border-white text-white":
+            variant === "outline",
         },
         className
       )}

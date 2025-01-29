@@ -34,30 +34,37 @@ export default function Navbar() {
 
   const links = [
     {
+      id: 1,
       name: "projects",
       path: "/projects",
     },
     {
+      id: 2,
       name: "Clubs",
       path: "/clubs",
     },
     {
+      id: 3,
       name: "blog",
       path: "/blog",
     },
     {
+      id: 4,
       name: "Get Involved",
       path: "/get-involved",
     },
     {
+      id: 5,
       name: "About Us",
       path: "/about",
     },
     {
+      id: 6,
       name: "Feedback Page",
       path: "/feedback",
     },
     {
+      id: 7,
       name: "FAQs",
       path: "/faqs",
     },

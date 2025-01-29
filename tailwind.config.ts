@@ -9,8 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // if you are using variable and want to use more than one fonts for your webapp,you could define it here. like i did 
-        geistSans: ["var(--font-geist-sans)"],
+        lato: ["var(--font-lato)"],
       },
       keyframes: {
         "fade-effect": {
