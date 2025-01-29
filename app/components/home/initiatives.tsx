@@ -9,7 +9,7 @@ export default function Initiatives() {
       <h2 className="text-[#000000] text-[40px] leading-[48px] font-semibold font-lato text-center">
         Featured Initiatives
       </h2>
-      <div className="flex flex-row gap-[17px] mt-[64px]">
+      <div className="flex flex-row justify-center gap-[17px] mt-[64px]">
         <Card
           icon={"/images/init-3.png"}
           path={"reach"}
