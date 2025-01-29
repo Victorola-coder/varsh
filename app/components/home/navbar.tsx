@@ -133,22 +133,18 @@ export default function Navbar() {
                 } pt-4 left-0 right-0`}
               >
                 <ul className="flex flex-col gap-[22px] items-center justify-center  mx-auto font-medium text-base tracking-tight text-center leading-[24px] font-sailmed text-dark">
-                  <li>
-                    <Link href="#features">Features</Link>
-                  </li>
-                  <li>
-                    <Link href="#faqs">FAQs</Link>
-                  </li>
-                  <li>
-                    <Link href="/login" replace>
-                      Log In
-                    </Link>
-                  </li>
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link href={link.path}>{link.name}</Link>
+                    </li>
+                  ))}
                 </ul>
                 <Link href="/sign-up">
-                  <Button className="mt-5 bg-primary whitespace-nowrap w-[330px] text-[16px] py-[12px] md:py-[18px] leading-[33px] rounded-[12px] md:absolute md:top-2 md:bottom-2 md:right-[7.8px] text-center outline-none md:px-[37.74px] font-sailmed text-[#ffffff] md:text-[20px] md:w-[218px] font-medium md:leading-[25.65px] md:rounded-[35.942px]">
-                    Create my page
-                  </Button>
+                  <Link href="/donate">
+                    <Button variant="danger" className="md:w-[100px]">
+                      Donate
+                    </Button>
+                  </Link>
                 </Link>
               </div>
             </div>

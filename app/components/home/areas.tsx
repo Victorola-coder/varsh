@@ -36,12 +36,6 @@ export default function Areas() {
           }
         />
       </div>
-
-      <div className="flex items-center justify-center">
-        <button className="bg-[#000] text-[#fff] rounded-[10px] px-[20px] py-[10px]">
-          View All
-        </button>
-      </div>
     </section>
   );
 }
