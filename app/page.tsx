@@ -1,4 +1,4 @@
-import { Area, Hero, More } from "./components/home";
+import { Area, Hero, Initiatives, More } from "./components/home";
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
       <Hero />
       <Area />
       <More />
+      <Initiatives />
     </main>
   );
 }
