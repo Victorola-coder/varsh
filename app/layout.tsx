@@ -2,24 +2,14 @@ import "./global.css";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
 import { AOS } from "./components/global";
-import { Montserrat } from "next/font/google";
+import { Navbar } from "./components/home";
 import type { Metadata, Viewport } from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const cabinetGrotesk = localFont({
+  display: "swap",
+  variable: "--font-cabinet-grotesk",
+  src: "./fonts/CabinetGrotesk-Variable.ttf",
+  weight: "100 200 300 400 500 600 700 800 900",
 });
 
 export const viewport: Viewport = {
@@ -91,11 +81,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${montserrat.className} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link
+          href="https://fonts.cdnfonts.com/css/cabinet-grotesk"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`antialiased ${cabinetGrotesk.className}`}>
         <Toaster richColors />
         <AOS />
+        <Navbar />
         {children}
       </body>
     </html>
