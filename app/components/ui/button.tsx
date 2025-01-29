@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
       disabled={loading || disabled}
       className={clsx(
         !noDefault &&
-          "transition-all duration-300 active:scale-[0.99] px-[21px] py-[10px] font-medium text-[18px] leading-normal font-aloeMed disabled:cursor-not-allowed disabled:bg-opacity-60",
+          "transition-all duration-300 active:scale-[0.99] rounded-[40px] px-[21px] py-[17px] font-bold text-[17px] leading-[21.8px] disabled:cursor-not-allowed disabled:bg-opacity-60",
         {
           "px-[21px] py-[12.5px] text-[18px]": size === "default",
           "px-3 py-2 text-sm": size === "sm",
@@ -27,8 +27,7 @@ export default function Button(props: ButtonProps) {
           "bg-gradient-to-r from-primary-100 to-primary rounded-[10px]  text-white":
             variant === "default",
           "bg-[#FFFFFF] text-black rounded-[16px]": variant === "secondary",
-          "bg-red-500/10 hover:bg-red-500/20 text-red-500":
-            variant === "danger",
+          "bg-[#FF3600] hover:bg-[#FF3600]/80 text-white": variant === "danger",
           "bg-[#6B39FF] hover:bg-[#6B39FF]/80 rounded-[12px] active:bg-[#6B39FF]/90 text-white":
             variant === "primary",
           "bg-[#283142] rounded-[12px] text-[#FFFFFF]": variant === "google",

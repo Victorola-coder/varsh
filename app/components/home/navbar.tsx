@@ -32,43 +32,65 @@ export default function Navbar() {
     }
   }, [isOpened, handleClick]);
 
+  const links = [
+    {
+      name: "projects",
+      path: "/projects",
+    },
+    {
+      name: "Clubs",
+      path: "/clubs",
+    },
+    {
+      name: "blog",
+      path: "/blog",
+    },
+    {
+      name: "Get Involved",
+      path: "/get-involved",
+    },
+    {
+      name: "About Us",
+      path: "/about",
+    },
+    {
+      name: "Feedback Page",
+      path: "/feedback",
+    },
+    {
+      name: "FAQs",
+      path: "/faqs",
+    },
+  ];
+
   return (
     <header
       id="navbar"
-      className="lg:mx-[55px] pt-5 mx-[30px] lg:py-[48px]  md:mx-[20px] md:py-[18px]"
+      className="lg:mx-[55px] mx-[30px] lg:py-[45px]  md:mx-[20px] md:py-[18px]"
     >
       <nav className="flex flex-row items-center justify-between">
-        <div className="flex flex-row gap-[12.12px] md:items-center md:mx-auto">
-          <figure>
-            <Image src={logo} draggable={false} alt="Logo" />
-          </figure>
+        <div className="flex flex-row gap-[12.12px]">
+          <Link href="/">
+            <figure>
+              <Image src={logo} draggable={false} alt="Logo" />
+            </figure>
+          </Link>
         </div>
         <div className="hidden md:flex items-center gap-[12.12px]">
-          <ul className="flex flex-row gap-4 md:text-[16px] md:leading-[24px] md:tracking-[0.5px] font-medium font-sailmed text-dark">
-            <li>
-              <Link href="#features">Features</Link>
-            </li>
-            <li>
-              <Link href="#faqs">FAQs</Link>
-            </li>
+          <ul className="flex flex-row gap-10 md:text-[16px] md:leading-[24px] md:tracking-[0.5px] font-normal capitalize text-dark">
+            {links.map((link) => (
+              <li key={link.name}>
+                <Link href={link.path}>{link.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* AUTH LINKS - HIDDEN ON MOBILE */}
-        <div className="hidden md:flex items-center gap-[22px]">
-          <Link
-            href="/login"
-            className="font-sailmed text-black md:text-[16px] md:leading-[24px] md:tracking-[0.5px] font-medium"
-            replace
-          >
-            Log In
-          </Link>
-          <Link href="/signup">
-            <Button className="font-sail font-medium text-white tracking-[-0.5px] md:leading-[24px] md:text-[16px] bg-primary rounded-[31px] px-[22px] py-[12px]">
-              Sign Up
-            </Button>
-          </Link>
-        </div>
+        <Link href="/donate">
+          <Button variant="danger" className="md:w-[222px]">
+            Donate
+          </Button>
+        </Link>
 
         {/* MOBILE NAV */}
         <div className="md:hidden" ref={navRef}>

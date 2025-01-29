@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 export default function NotFound() {
   return (
     <>
-      <section className="overflow-hidden mx-auto relative min-h-[100vh]  font-clashMed">
+      <section className="overflow-hidden mx-auto relative min-h-[100vh]">
         <div className="absolute z-10 right-0 left-0 top-[140px] md:top-5">
-          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#D9D9D975]/5 to-[#D9D9D900] text-center">
+          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#000000]/60 to-[#D9D9D900] text-center">
             404
           </h2>
         </div>
         <div className="absolute -z-50 right-0 left-0 top-[145px] md:-top-4">
-          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#FFFFFF03]/5 to-[#D9D9D900] text-center">
+          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#000000]/60 to-[#D9D9D900] text-center">
             404
           </h2>
         </div>
@@ -23,7 +23,7 @@ export default function NotFound() {
           <p className="absolute top-0 left-0 right-0 text-[100.999px] lg:text-[200.477px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#FFFFFF03]/40 to-[#D9D9D900] text-center">
             404
           </p>
-          <p className="absolute top-3 lg:top-6 left-0 right-0 text-[100.999px] lg:text-[200.477px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-[#FFFFFF66] from-[#FFFFFF66] to-[#D9D9D900] text-center">
+          <p className="absolute top-3 lg:top-6 left-0 right-0 text-[100.999px] lg:text-[200.477px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-[#28282866] from-[#FFFFFF66] to-[#D9D9D900] text-center">
             404
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function NotFound() {
           <h3 className="text-[23px] font-satMed font-semibold">
             oooops! chief..😢
           </h3>
-          <p className="text-[#FFFFFF99] text-center mx-auto max-w-sm px-3 text-sm font-clashMed font-medium">
+          <p className="text-[#000000]/60 text-center mx-auto max-w-sm px-3 text-s font-medium">
             {"We can't show the page you requested due to legal reasons."}
           </p>
 
