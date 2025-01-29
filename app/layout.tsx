@@ -17,18 +17,26 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nextapptemplate.xyz"),
+  metadataBase: new URL("https://varsh.org"),
   icons: {
-    icon: "/icon.png",
+    icon: "/images/logo.svg",
   },
-  title: "nextjs template",
+  title: "Varsh Foundation - Reach one, Reach all",
   description:
-    "I fell in love with next.js, im trying to make a template for it also",
-  applicationName: "next Web Application",
-  authors: [{ name: "nextapp template", url: "https://domainname.host" }],
-  keywords: ["NextJs", "reactjs", "template", "typescript"],
-  creator: "VickyJay",
-  publisher: "VickyJay",
+    "Together for a safer, More equal world - Free from sexual abuse",
+  applicationName: "Varsh Foundation",
+  authors: [{ name: "Varsh Foundation", url: "https://varsh.org" }],
+  keywords: [
+    "NGO",
+    "Varsh",
+    "NGO in Nigeria",
+    "Varsh Foundation",
+    "NGO in Osun State",
+    "Free from sexual abuse",
+    "Together for a safer, More equal world",
+  ],
+  creator: "Varsh Foundation",
+  publisher: "Varsh Foundation",
   generator: "Next.js",
   referrer: "origin",
   robots: {
@@ -37,39 +45,37 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://domainname.host",
-    title: "Nextjs template",
-    siteName: "nextapp template",
+    url: "https://varsh.org",
+    title: "Varsh Foundation - Reach one, Reach all",
+    siteName: "Varsh Foundation",
     locale: "en_US",
     images: [
       {
-        url: "linktoopengraphimage.cdn",
+        url: "https://varsh.org/images/logo.svg",
         width: 1200,
         height: 630,
-        alt: "next OG Image",
+        alt: "Varsh Foundation - Reach one, Reach all",
       },
     ],
   },
   twitter: {
-    site: "nextapp",
-    creator: "socialmediahandle",
-    title:
-      "nextapp template - I fell in love with next.js, im trying to make a template for it tooo",
+    site: "Varsh Foundation",
+    creator: "Varsh Foundation",
+    title: "Varsh Foundation - Reach one, Reach all",
     description:
-      "I fell in love with next.js, im trying to make a template for it too",
+      "Together for a safer, More equal world - Free from sexual abuse",
     card: "summary_large_image",
-    images: ["linktoopengraph.com"],
+    images: ["https://varsh.org/images/logo.svg"],
   },
   appleWebApp: {
     capable: true,
-    title: "nextapp template",
+    title: "Varsh Foundation - Reach one, Reach all",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
     telephone: false,
   },
-  abstract:
-    "I fell in love with next.js, im trying to make a template for it tooo",
+  abstract: "Together for a safer, More equal world - Free from sexual abuse",
   category: "Social",
   classification: "Social",
 };

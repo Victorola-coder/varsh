@@ -1,4 +1,3 @@
-
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -19,6 +18,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/"],
       },
     ],
-    sitemap: "https://sitename.host/sitemap.xml",
+    sitemap: "https://varsh.org/sitemap.xml",
   };
 }
