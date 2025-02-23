@@ -20,7 +20,7 @@ export default function More() {
           and change, dedicated to creating a world that is safer, more
           equitable and free from the scourge of sexual abuse.
         </p>
-        <Link href="/learn-more">
+        <Link href="/about">
           <Button variant="danger" className="md:w-[222px]">
             Learn More
           </Button>

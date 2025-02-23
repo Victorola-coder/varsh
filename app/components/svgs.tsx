@@ -18,6 +18,27 @@ export function ArrowRightIcon({ className, fill }: SVGProps) {
   );
 }
 
+export function CheckIcon() {
+  return (
+    <svg
+      width="22"
+      height="12"
+      viewBox="0 0 22 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 11L1 6M6 6L11 11L21 1M11 6L16 1"
+        stroke="#FF3600"
+        // style="stroke:#FF3600;stroke:color(display-p3 1.0000 0.2118 0.0000);stroke-opacity:1;"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
+
 export const EyeIcon = ({ className, fill }: SVGProps) => {
   return (
     <svg
