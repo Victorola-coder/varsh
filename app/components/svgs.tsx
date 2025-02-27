@@ -31,9 +31,9 @@ export function CheckIcon() {
         d="M6 11L1 6M6 6L11 11L21 1M11 6L16 1"
         stroke="#FF3600"
         // style="stroke:#FF3600;stroke:color(display-p3 1.0000 0.2118 0.0000);stroke-opacity:1;"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

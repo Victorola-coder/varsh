@@ -1,3 +1,5 @@
+"use client";
+
 import { toast } from "sonner";
 import { Input, Button } from "../ui";
 import { FormEvent, useState } from "react";
