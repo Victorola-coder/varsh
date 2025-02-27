@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { Lato } from "next/font/google";
 import { AOS } from "./components/global";
 import { Navbar } from "./components/home";
+import { Footer } from "./components/global";
 import type { Metadata, Viewport } from "next";
 
 const cabinetGrotesk = localFont({
@@ -108,6 +109,7 @@ export default function RootLayout({
         <AOS />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
