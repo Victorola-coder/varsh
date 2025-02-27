@@ -107,26 +107,26 @@ export default function CampusClubs() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {clubs.map((club) => (
-          //   <Link href={`/clubs/${club.id}`} key={club.id}>
-          <div className="relative h-[220px] overflow-hidden rounded-[12px] group">
-            <Image
-              src={club.imageUrl}
-              alt={club.name}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-[22px] font-bold leading-tight mb-1">
-                  {club.name}
-                </h3>
-                <p className="text-sm text-white mt-1">
-                  {club.location} - {club.clubName}
-                </p>
+          <Link href={`/clubs/${club.id}`} key={club.id}>
+            <div className="relative h-[220px] overflow-hidden rounded-[12px] group">
+              <Image
+                src={club.imageUrl}
+                alt={club.name}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-[22px] font-bold leading-tight mb-1">
+                    {club.name}
+                  </h3>
+                  <p className="text-sm text-white mt-1">
+                    {club.location} - {club.clubName}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          //   </Link>
+          </Link>
         ))}
       </div>
     </section>
