@@ -24,7 +24,7 @@ export default function Input({
             {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
             placeholder={placeholder}
             className={clsx(
-              "w-full bg-[#283142] p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
+              "w-full bg-[#283142]_ p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
               error && "border-1 border-red-500"
             )}
           />
@@ -35,7 +35,7 @@ export default function Input({
             placeholder={placeholder}
             autoComplete="off"
             className={clsx(
-              "w-full bg-[#283142] h-full p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
+              "w-full bg-[#283142]_ h-full p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
               error && "border-1 border-red-500",
               type === "password" && "pr-12"
             )}

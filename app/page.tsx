@@ -1,4 +1,11 @@
-import { Area, Hero, Initiatives, More, Varsh } from "./components/home";
+import {
+  Area,
+  Hero,
+  More,
+  Varsh,
+  Newsletter,
+  Initiatives,
+} from "./components/home";
 
 export default function Home() {
   return (
@@ -8,6 +15,7 @@ export default function Home() {
       <More />
       <Initiatives />
       <Varsh />
+      <Newsletter />
     </main>
   );
 }
