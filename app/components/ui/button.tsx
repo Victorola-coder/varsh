@@ -27,7 +27,8 @@ export default function Button(props: ButtonProps) {
           "bg-gradient-to-r from-primary-100 to-primary rounded-[10px]  text-white":
             variant === "default",
           "bg-[#FFFFFF] text-black rounded-[16px]": variant === "secondary",
-          "bg-[#FF3600] hover:bg-[#FF3600]/80 text-white": variant === "danger",
+          "bg-[#FF3600] hover:bg-[#FF3600]/80  md:rounded-[12px] active:bg-[#FF3600]/90 text-white":
+            variant === "danger",
           "bg-[#6B39FF] hover:bg-[#6B39FF]/80 rounded-[12px] active:bg-[#6B39FF]/90 text-white":
             variant === "primary",
           "bg-[#283142] rounded-[12px] text-[#FFFFFF]": variant === "google",

@@ -73,7 +73,7 @@ export default function Navbar() {
   return (
     <header
       id="navbar"
-      className="lg:mx-[55px] mx-[30px] lg:py-[45px]  md:mx-[20px] md:py-[18px]"
+      className="lg:mx-[55px] mx-[5px] py-2.5 lg:py-[45px]  md:mx-[20px] md:py-[18px]"
     >
       <nav className="flex flex-row items-center justify-between">
         <div className="flex flex-row gap-[12.12px]">
@@ -94,7 +94,7 @@ export default function Navbar() {
         </div>
 
         <Link href="/donate">
-          <Button variant="danger" className="md:w-[222px]">
+          <Button variant="danger" className="hidden md:block md:w-[222px]">
             Donate
           </Button>
         </Link>
@@ -132,19 +132,17 @@ export default function Navbar() {
                   isOpened ? "-translate-y-[50px]" : "-translate-y-[200%]"
                 } pt-4 left-0 right-0`}
               >
-                <ul className="flex flex-col gap-[22px] items-center justify-center  mx-auto font-medium text-base tracking-tight text-center leading-[24px] font-sailmed text-dark">
+                <ul className="flex flex-col gap-[22px] items-start justify-start mx-auto font-medium text-base tracking-tight text-center leading-[24px] font-sailmed capitalize text-dark">
                   {links.map((link) => (
                     <li key={link.name}>
                       <Link href={link.path}>{link.name}</Link>
                     </li>
                   ))}
                 </ul>
-                <Link href="/sign-up">
-                  <Link href="/donate">
-                    <Button variant="danger" className="md:w-[100px]">
-                      Donate
-                    </Button>
-                  </Link>
+                <Link href="/donate">
+                  <Button variant="danger" className="w-full mt-4">
+                    Donate
+                  </Button>
                 </Link>
               </div>
             </div>
