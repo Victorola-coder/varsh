@@ -5,12 +5,13 @@ import child from "@/public/images/child.svg";
 
 export default function Varsh() {
   return (
-    <section className="flex row mx-[53px] mt-[100px]">
-      <div className="flex flex-col gap-5">
-        <h2 className="text-[#1D1D1D] text-[40px] leading-[52px] font-semibold">
-          VARSH FOUNDATION<p className="h-[3px] w-[20%] bg-[#FF3600]"></p>
+    <section className="flex flex-col lg:flex-row mx-4 md:mx-[30px] lg:mx-[53px] mt-[40px] md:mt-[70px] lg:mt-[100px] gap-8 lg:gap-[50px]">
+      <div className="flex flex-col gap-4 md:gap-5">
+        <h2 className="text-[28px] md:text-[34px] lg:text-[40px] leading-[1.2] md:leading-[52px] font-semibold text-[#1D1D1D] text-center lg:text-left">
+          VARSH FOUNDATION
+          <p className="h-[3px] w-[20%] bg-[#FF3600] mx-auto lg:mx-0 mt-2"></p>
         </h2>
-        <p className="font-normal text-[20px] leading-[40px] max-w-[807px]">
+        <p className="font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] md:leading-[40px] max-w-[807px] text-center lg:text-left">
           VARSH Foundation was founded in 2019 by a group of passionate and
           determined individuals led by Salvation Grace, who recognised the
           urgent need to address and combat sexual abuse and gender-based
@@ -19,12 +20,12 @@ export default function Varsh() {
           This signifies a refreshing and cleansing force, much like the
           transformative impact the foundation aspires to have on society.
         </p>
-        <div>
-          <h4 className="font-normal text-[20px] leading-[40px] max-w-[807px]">
+        <div className="mt-2 md:mt-4">
+          <h4 className="font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] md:leading-[40px] max-w-[807px] text-center lg:text-left mb-4 md:mb-6">
             Over the years, VARSH Foundation has made significant strides in its
             fight against sexual abuse:
           </h4>
-          <div className="flex flex-col gap-5 max-w-[734px]">
+          <div className="flex flex-col gap-4 md:gap-5 max-w-[734px]">
             <Strides
               content={
                 <>
@@ -55,8 +56,13 @@ export default function Varsh() {
           </div>
         </div>
       </div>
-      <figure>
-        <Image src={child} alt="children" draggable={false} />
+      <figure className="w-full lg:w-auto flex justify-center lg:justify-start">
+        <Image
+          src={child}
+          alt="children"
+          draggable={false}
+          className="w-full max-w-[500px] lg:w-auto h-auto"
+        />
       </figure>
     </section>
   );
@@ -64,13 +70,11 @@ export default function Varsh() {
 
 function Strides({ content }: { content: React.ReactNode }) {
   return (
-    <>
-      <div className="flex flex-row items-start gap-5">
-        <CheckIcon />
-        <p className="font-medium text-[20px] leading-[31px] text-[#4A4A4A]">
-          {content}
-        </p>
-      </div>
-    </>
+    <div className="flex flex-row items-start gap-3 md:gap-5">
+      <CheckIcon className="flex-shrink-0 mt-1.5" />
+      <p className="font-medium text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[31px] text-[#4A4A4A]">
+        {content}
+      </p>
+    </div>
   );
 }
