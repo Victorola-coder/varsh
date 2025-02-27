@@ -5,7 +5,9 @@ import { Button } from "../ui";
 import Image from "next/image";
 // import { Logo } from "../svgs";
 import logo from "@/public/images/logo.svg";
+import { motion, AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { fadeIn, slideIn } from "../animations";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -71,18 +73,24 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      id="navbar"
-      className="lg:mx-[55px] mx-[5px] py-2.5 lg:py-[45px]  md:mx-[20px] md:py-[18px]"
+    <motion.header
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={fadeIn}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm"
     >
-      <nav className="flex flex-row items-center justify-between">
-        <div className="flex flex-row gap-[12.12px]">
-          <Link href="/">
-            <figure>
-              <Image src={logo} draggable={false} alt="Logo" />
-            </figure>
+      <nav className="flex items-center justify-between px-4 md:px-8 lg:px-[55px] py-4 md:py-5 lg:py-[45px]">
+        <motion.div variants={slideIn}>
+          <Link href="/" className="relative z-50">
+            <Image
+              src={logo}
+              alt="Logo"
+              className="w-[100px] md:w-[120px] lg:w-auto"
+              draggable={false}
+            />
           </Link>
-        </div>
+        </motion.div>
         <div className="hidden md:flex items-center gap-[12.12px]">
           <ul className="flex flex-row gap-10 md:text-[16px] md:leading-[24px] md:tracking-[0.5px] font-normal capitalize text-dark">
             {links.map((link) => (
@@ -148,7 +156,20 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        <AnimatePresence>
+          {isOpened && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 bg-white/95 backdrop-blur-sm"
+            >
+              {/* Mobile menu content */}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
-    </header>
+    </motion.header>
   );
 }

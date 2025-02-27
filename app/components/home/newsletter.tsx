@@ -3,6 +3,8 @@
 import { toast } from "sonner";
 import { Input, Button } from "../ui";
 import { FormEvent, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn, slideIn } from "../animations";
 
 export default function Newsletter() {
   const [email, setEmail] = useState<string>("");
@@ -25,49 +27,63 @@ export default function Newsletter() {
         throw new Error("Failed to subscribe");
       }
 
+      toast.success("Successfully subscribed to newsletter!");
       setEmail("");
-      toast.success("Newsletter subscribed successfully");
     } catch (error) {
-      toast.error("Newsletter subscription failed");
-      console.error("Newsletter subscription failed:", error);
+      toast.error("Failed to subscribe. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="mt-[40px] md:mt-[64px] bg-[#FAFAFA] mx-4 md:mx-[50px] px-4 md:px-[70px] py-[30px] md:py-[57px] flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
-      <div className="text-center md:text-left">
-        <h3 className="text-[28px] md:text-[32px] lg:text-[40px] leading-[1.2] font-bold tracking-[-1px] text-[#1D1D1D]">
-          Newsletter
-        </h3>
-        <p className="text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] md:leading-[32px] text-[#40404080] font-normal mt-2">
-          Bring together people who care about a cause
-        </p>
-      </div>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto"
+    <motion.section
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      className="mt-[40px] md:mt-[88px] bg-[#F7F7F7] py-[40px] md:py-[60px] lg:py-[80px] px-4 md:px-8"
+    >
+      <motion.div
+        variants={fadeIn}
+        className="max-w-[800px] mx-auto text-center"
       >
-        <Input
-          type="email"
-          value={email}
-          required
-          placeholder="Enter email"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail(e.target.value)
-          }
-          className="w-full md:w-[300px] bg-white border border-[#E5E5E5] focus:border-[#FF3600]"
-        />
-        <Button
-          type="submit"
-          variant="danger"
-          loading={loading}
-          className="w-full md:w-auto px-8"
+        <motion.h3
+          variants={slideIn}
+          className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] md:leading-[52.08px] font-bold"
         >
-          Subscribe
-        </Button>
-      </form>
-    </section>
+          Subscribe to Our Newsletter
+        </motion.h3>
+        <motion.p
+          variants={fadeIn}
+          className="mt-4 text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] text-[#4A4A4A]"
+        >
+          Stay updated with our latest news and announcements
+        </motion.p>
+        <motion.form
+          variants={fadeIn}
+          onSubmit={handleSubmit}
+          className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto mt-8"
+        >
+          <Input
+            type="email"
+            value={email}
+            required
+            placeholder="Enter email"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
+            className="w-full md:w-[300px] bg-white border border-[#E5E5E5] focus:border-[#FF3600]"
+          />
+          <Button
+            type="submit"
+            variant="danger"
+            loading={loading}
+            className="w-full md:w-auto px-8"
+          >
+            Subscribe
+          </Button>
+        </motion.form>
+      </motion.div>
+    </motion.section>
   );
 }
