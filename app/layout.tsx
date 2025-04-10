@@ -1,3 +1,5 @@
+"use client";
+
 import "./global.css";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
@@ -6,6 +8,7 @@ import { AOS } from "./components/global";
 import { Navbar } from "./components/home";
 import { Footer } from "./components/global";
 import type { Metadata, Viewport } from "next";
+import { SessionProvider } from "next-auth/react";
 
 const cabinetGrotesk = localFont({
   display: "swap",
@@ -105,11 +108,13 @@ export default function RootLayout({
       <body
         className={`antialiased ${cabinetGrotesk.className} ${lato.variable}`}
       >
-        <Toaster richColors />
-        <AOS />
-        <Navbar />
-        {children}
-        <Footer />
+        <SessionProvider>
+          <Toaster richColors />
+          <AOS />
+          <Navbar />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
