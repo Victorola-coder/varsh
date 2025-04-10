@@ -5,6 +5,7 @@ import { Input, Button } from "../ui";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "../animations";
+import Image from "next/image";
 
 export default function Newsletter() {
   const [email, setEmail] = useState<string>("");
@@ -38,52 +39,164 @@ export default function Newsletter() {
 
   return (
     <motion.section
+      id="newsletter"
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
-      className="mt-[40px] md:mt-[88px] bg-[#F7F7F7] py-[40px] md:py-[60px] lg:py-[80px] px-4 md:px-8"
+      className="mt-[60px] md:mt-[100px] relative overflow-hidden"
     >
-      <motion.div
-        variants={fadeIn}
-        className="max-w-[800px] mx-auto text-center"
-      >
-        <motion.h3
-          variants={slideIn}
-          className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] md:leading-[52.08px] font-bold"
-        >
-          Subscribe to Our Newsletter
-        </motion.h3>
-        <motion.p
-          variants={fadeIn}
-          className="mt-4 text-[16px] md:text-[18px] lg:text-[20px] leading-[1.5] text-[#4A4A4A]"
-        >
-          Stay updated with our latest news and announcements
-        </motion.p>
-        <motion.form
-          variants={fadeIn}
-          onSubmit={handleSubmit}
-          className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto mt-8"
-        >
-          <Input
-            type="email"
-            value={email}
-            required
-            placeholder="Enter email"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            className="w-full md:w-[300px] bg-white border border-[#E5E5E5] focus:border-[#FF3600]"
-          />
-          <Button
-            type="submit"
-            variant="danger"
-            loading={loading}
-            className="w-full md:w-auto px-8"
+      <div className="absolute inset-0 bg-gradient-to-r from-[#FF3600]/10 to-[#FF3600]/5 z-0"></div>
+
+      {/* Decorative elements */}
+      <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#FF3600]/10 z-0"></div>
+      <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#FF3600]/5 z-0"></div>
+
+      <div className="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-20 relative z-10">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <motion.div variants={fadeIn} className="text-left">
+            <motion.span
+              variants={slideIn}
+              className="inline-block px-4 py-1 mb-4 text-sm font-medium rounded-full bg-[#FF3600]/10 text-[#FF3600]"
+            >
+              Join Our Community
+            </motion.span>
+            <motion.h3
+              variants={slideIn}
+              className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] font-bold"
+            >
+              Never Miss an Update
+            </motion.h3>
+            <motion.p
+              variants={fadeIn}
+              className="mt-4 text-[16px] md:text-[18px] leading-[1.6] text-[#4A4A4A] max-w-md"
+            >
+              Subscribe to our newsletter to receive the latest news, impact
+              stories, and upcoming events directly to your inbox.
+            </motion.p>
+
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-[#FF3600]"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <p className="text-[#4A4A4A]">Monthly impact reports</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-[#FF3600]"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <p className="text-[#4A4A4A]">Exclusive event invitations</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 text-[#FF3600]"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <p className="text-[#4A4A4A]">Volunteer opportunities</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={slideIn}
+            className="bg-white p-6 md:p-8 rounded-xl shadow-lg"
           >
-            Subscribe
-          </Button>
-        </motion.form>
-      </motion.div>
+            <div className="flex justify-center mb-6">
+              <div className="relative w-20 h-20">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-full w-full text-[#FF3600]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h4 className="text-xl font-medium mb-4 text-center">
+              Subscribe Today
+            </h4>
+            <motion.form
+              variants={fadeIn}
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Email Address
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  required
+                  placeholder="yourname@example.com"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setEmail(e.target.value)
+                  }
+                  className="w-full bg-white border border-[#E5E5E5] focus:ring-2 focus:ring-[#FF3600]/20 focus:border-[#FF3600] rounded-lg"
+                />
+              </div>
+
+              <div className="pt-2">
+                <Button
+                  type="submit"
+                  variant="danger"
+                  loading={loading}
+                  className="w-full py-3 rounded-lg transition-all transform hover:scale-[1.02]"
+                >
+                  Subscribe Now
+                </Button>
+              </div>
+
+              <p className="text-xs text-gray-500 text-center mt-4">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </motion.form>
+          </motion.div>
+        </div>
+      </div>
     </motion.section>
   );
 }

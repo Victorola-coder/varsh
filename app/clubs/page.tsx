@@ -53,7 +53,7 @@ export default function ClubsPage() {
   ];
 
   return (
-    <main className="px-4 md:px-8 lg:px-12 py-10 md:py-16 max-w-[1200px] mx-auto">
+    <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">
         Campus Clubs
       </h1>

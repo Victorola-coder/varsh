@@ -8,10 +8,12 @@ import logo from "@/public/images/logo.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { fadeIn, slideIn } from "../animations";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const navRef = useRef<any>(null);
+  const pathname = usePathname();
 
   const handleClick = useCallback(
     function (e: Event) {
@@ -77,6 +79,10 @@ export default function Navbar() {
     },
   ];
 
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
     <motion.header
       initial="initial"
@@ -100,14 +106,28 @@ export default function Navbar() {
           <ul className="flex flex-row gap-10 md:text-[16px] md:leading-[24px] md:tracking-[0.5px] font-normal capitalize text-dark">
             {links.map((link) => (
               <li key={link.name}>
-                <Link href={link.path}>{link.name}</Link>
+                <Link
+                  href={link.path}
+                  className={`transition-colors ${
+                    isActive(link.path)
+                      ? "text-[#FF3600] font-medium"
+                      : "hover:text-[#FF3600]/80"
+                  }`}
+                >
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <Link href="/donate">
-          <Button variant="danger" className="hidden md:block md:w-[222px]">
+          <Button
+            variant="danger"
+            className={`hidden md:block md:w-[180px] ${
+              isActive("/donate") ? "bg-[#e13000]" : ""
+            }`}
+          >
             Donate
           </Button>
         </Link>
@@ -148,12 +168,26 @@ export default function Navbar() {
                 <ul className="flex flex-col gap-[22px] items-start justify-start mx-auto font-medium text-base tracking-tight text-center leading-[24px] font-sailmed capitalize text-dark">
                   {links.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.path}>{link.name}</Link>
+                      <Link
+                        href={link.path}
+                        className={`transition-colors ${
+                          isActive(link.path)
+                            ? "text-[#FF3600] font-medium"
+                            : "hover:text-[#FF3600]/80"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
                 <Link href="/donate">
-                  <Button variant="danger" className="w-full mt-4">
+                  <Button
+                    variant="danger"
+                    className={`w-full mt-4 ${
+                      isActive("/donate") ? "bg-[#e13000]" : ""
+                    }`}
+                  >
                     Donate
                   </Button>
                 </Link>

@@ -41,7 +41,7 @@ export default function DonatePage() {
   ];
 
   return (
-    <main className="px-4 md:px-8 lg:px-12 py-10 md:py-16 max-w-[1200px] mx-auto">
+    <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
       <section className="mb-12">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8">
           Support Our Mission

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const footerLinks = {
   about: {
@@ -22,7 +25,7 @@ const footerLinks = {
   getInvolved: {
     title: "Get Involved",
     links: [
-      { name: "Donate", href: "/get-involved#donate" },
+      { name: "Donate", href: "/donate" },
       { name: "Become a Member", href: "/get-involved#become-member" },
       { name: "Join a Campus Club", href: "/clubs" },
       { name: "FAQs", href: "/faqs" },
@@ -55,6 +58,19 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    // For exact matches (simple paths)
+    if (!path.includes("#")) {
+      return pathname === path;
+    }
+
+    // For paths with hash, check if the base path matches
+    const basePath = path.split("#")[0];
+    return pathname === basePath;
+  };
+
   return (
     <footer className="bg-white px-4 md:px-8 lg:px-[50px] py-[64px]">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -111,7 +127,11 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#1D1D1D]/70 hover:text-[#FF3600] transition-colors text-sm"
+                    className={`transition-colors ${
+                      isActive(link.href)
+                        ? "text-[#FF3600] font-medium"
+                        : "text-[#1D1D1D]/70 hover:text-[#FF3600]"
+                    }`}
                   >
                     {link.name}
                   </Link>
@@ -131,13 +151,21 @@ export default function Footer() {
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link
               href="/privacy-policy"
-              className="text-[#1D1D1D]/70 hover:text-[#FF3600] transition-colors text-sm"
+              className={`transition-colors ${
+                isActive("/privacy-policy")
+                  ? "text-[#FF3600] font-medium"
+                  : "text-[#1D1D1D]/70 hover:text-[#FF3600]"
+              }`}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
-              className="text-[#1D1D1D]/70 hover:text-[#FF3600] transition-colors text-sm"
+              className={`transition-colors ${
+                isActive("/terms-of-service")
+                  ? "text-[#FF3600] font-medium"
+                  : "text-[#1D1D1D]/70 hover:text-[#FF3600]"
+              }`}
             >
               Terms of Service
             </Link>
