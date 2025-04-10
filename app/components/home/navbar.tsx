@@ -62,11 +62,16 @@ export default function Navbar() {
     },
     {
       id: 6,
-      name: "Feedback Page",
-      path: "/feedback",
+      name: "Contact",
+      path: "/contact",
     },
     {
       id: 7,
+      name: "Feedback",
+      path: "/feedback",
+    },
+    {
+      id: 8,
       name: "FAQs",
       path: "/faqs",
     },

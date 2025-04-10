@@ -5,33 +5,36 @@ const footerLinks = {
   about: {
     title: "About",
     links: [
-      { name: "Who are we", href: "/about" },
-      { name: "Where we work", href: "/about/work" },
-      { name: "What we do", href: "/about/mission" },
+      { name: "Who We Are", href: "/about" },
+      { name: "Our Team", href: "/about#team" },
+      { name: "Our Mission", href: "/about#mission" },
     ],
   },
-  resources: {
-    title: "Resources",
+  projects: {
+    title: "Projects",
     links: [
-      { name: "Media Center", href: "/resources/media" },
-      { name: "Publications", href: "/resources/publications" },
-      { name: "Policy", href: "/resources/policy" },
+      { name: "Reach Every Child", href: "/projects#rech" },
+      { name: "Girls Talk", href: "/projects#girls-talk" },
+      { name: "Walk Against Rape", href: "/projects#walk-against-rape" },
+      { name: "School Outreaches", href: "/projects#school-outreaches" },
     ],
   },
   getInvolved: {
     title: "Get Involved",
     links: [
-      { name: "Join", href: "/join" },
-      { name: "Take Action", href: "/take-action" },
-      { name: "Volunteer", href: "/volunteer" },
+      { name: "Donate", href: "/get-involved#donate" },
+      { name: "Become a Member", href: "/get-involved#become-member" },
+      { name: "Join a Campus Club", href: "/clubs" },
+      { name: "FAQs", href: "/faqs" },
     ],
   },
-  latest: {
-    title: "Latest",
+  connect: {
+    title: "Connect",
     links: [
-      { name: "News", href: "/news" },
-      { name: "Campaigns", href: "/campaigns" },
-      { name: "Research", href: "/research" },
+      { name: "Blog", href: "/blog" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "Feedback", href: "/feedback" },
+      { name: "Newsletter", href: "/#newsletter" },
     ],
   },
 };
@@ -53,7 +56,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white px-[50px] py-[64px]">
+    <footer className="bg-white px-4 md:px-8 lg:px-[50px] py-[64px]">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Logo and Description Section */}
         <div className="md:col-span-3">
@@ -67,9 +70,10 @@ export default function Footer() {
             />
           </Link>
           <p className="text-[#1D1D1D]/70 text-sm leading-relaxed mb-6">
-            Lorem ipsum dolor sit amet consectetur. Sit eget tempor pulvinar
-            dictum. Cras pellentesque amet mauris rhoncus libero odio faucibus
-            nunc.
+            Together for a safer, more equal world - Free from sexual abuse.
+            VARSH Foundation is committed to creating a society where every
+            individual is safe from sexual abuse, child abuse, and gender
+            discrimination.
           </p>
           <div className="space-y-2">
             <h4 className="text-sm font-medium text-[#1D1D1D] mb-3">
@@ -116,6 +120,29 @@ export default function Footer() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-12 pt-6 border-t border-gray-200">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-[#1D1D1D]/70 text-sm">
+            &copy; {new Date().getFullYear()} VARSH Foundation. All rights
+            reserved.
+          </p>
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <Link
+              href="/privacy-policy"
+              className="text-[#1D1D1D]/70 hover:text-[#FF3600] transition-colors text-sm"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="text-[#1D1D1D]/70 hover:text-[#FF3600] transition-colors text-sm"
+            >
+              Terms of Service
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
