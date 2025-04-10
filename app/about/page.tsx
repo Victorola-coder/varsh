@@ -123,6 +123,8 @@ export default function AboutPage() {
               to sex education harassment.
             </p>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://punchng.com/ngo-sensitises-osun-girls-to-sex-education-harassment/"
               className="text-[#FF3600] hover:underline"
             >
@@ -134,6 +136,8 @@ export default function AboutPage() {
               2. Featured by International Centre for Investigative Reporting
             </p>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://www.icirnigeria.org/how-rape-sexual-assault-harassment-is-forcing-girls-out-of-secondary-schools/"
               className="text-[#FF3600] hover:underline"
             >
@@ -142,6 +146,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://pija.com.ng/what-is-varsh/special-feature/03/2022/"
               className="text-[#FF3600] hover:underline"
             >
@@ -150,6 +156,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://edugist.org/tag/varsh-foundation-trains-students-in-sex-education/"
               className="text-[#FF3600] hover:underline"
             >
@@ -158,6 +166,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://edugist.org/empowering-girls-through-menstrual-hygiene-education-varsh-teachers-educate-students/"
               className="text-[#FF3600] hover:underline"
             >
@@ -166,6 +176,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://edugist.org/oau-students-launch-initiative-to-combat-sgbv-in-campus-communities-2/"
               className="text-[#FF3600] hover:underline"
             >
@@ -174,6 +186,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://businessday.ng/news/article/oau-students-unveils-project-to-fight-sexual-violence/"
               className="text-[#FF3600] hover:underline"
             >
@@ -182,6 +196,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://guardian.ng/features/education/firm-oau-students-partner-to-tackle-sexual-violence-on-campus/"
               className="text-[#FF3600] hover:underline"
             >
@@ -190,6 +206,8 @@ export default function AboutPage() {
           </div>
           <div>
             <a
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://punchng.com/oau-students-unveil-programme-to-tackle-sexual-violence/"
               className="text-[#FF3600] hover:underline"
             >
