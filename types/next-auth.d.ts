@@ -1,4 +1,5 @@
 import "next-auth";
+import { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface Session {
@@ -8,6 +9,10 @@ declare module "next-auth" {
       email?: string | null;
       image?: string | null;
       role?: "USER" | "ADMIN" | "SUPERADMIN";
-    };
+    } & DefaultSession["user"];
+  }
+
+  interface User {
+    role?: "USER" | "ADMIN" | "SUPERADMIN";
   }
 }

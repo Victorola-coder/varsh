@@ -1,16 +1,12 @@
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
-import { authOptions } from "../../auth/config";
+import { getSession } from "@/lib/jwt";
 
 export async function GET() {
-  const session = await getServerSession(authOptions);
+  const session = await getSession();
 
-  if (
-    !session ||
-    (session.user?.role !== "ADMIN" && session.user?.role !== "SUPERADMIN")
-  ) {
-    return new NextResponse("Unauthorized", { status: 401 });
+  if (!session || (session.role !== "ADMIN" && session.role !== "SUPERADMIN")) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   try {
@@ -29,6 +25,9 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Failed to fetch admin stats:", error);
-    return new NextResponse("Internal Server Error", { status: 500 });
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
