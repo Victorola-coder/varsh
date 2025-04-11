@@ -1,8 +1,8 @@
+import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { createSession } from "@/lib/jwt";
 import { validateEnv } from "@/lib/env";
-import bcrypt from "bcryptjs";
 
 validateEnv();
 
