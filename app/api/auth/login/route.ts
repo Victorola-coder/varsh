@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { compare } from "bcryptjs";
-import { createToken } from "@/lib/jwt";
+import { createSession } from "@/lib/jwt";
 
 export async function POST(request: Request) {
   try {
@@ -35,12 +35,7 @@ export async function POST(request: Request) {
     }
 
     // Create session token
-    const token = await createToken({
-      id: user.id,
-      email: user.email,
-      name: user.name,
-      role: user.role,
-    });
+    const token = await createSession(user.id, user.role);
 
     const response = NextResponse.json({
       user: {

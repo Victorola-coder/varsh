@@ -1,31 +1,54 @@
-import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { SignJWT, jwtVerify } from "jose";
 
-const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET || "your-secret-key"
-);
-
-export async function createToken(payload: any) {
-  return await new SignJWT(payload)
-    .setProtectedHeader({ alg: "HS256" })
-    .setExpirationTime("24h")
-    .sign(secret);
+const secretKey = process.env.JWT_SECRET_KEY;
+if (!secretKey) {
+  throw new Error("JWT_SECRET_KEY is not set");
 }
 
-export async function verifyToken(token: string) {
+const key = new TextEncoder().encode(secretKey);
+
+export async function createSession(
+  userId: string,
+  role: "USER" | "ADMIN" | "SUPERADMIN"
+) {
+  const token = await new SignJWT({ userId, role })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("24h")
+    .sign(key);
+
+  const cookieStore = await cookies();
+  cookieStore.set("session-token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24, // 24 hours
+  });
+
+  return token;
+}
+
+export async function getSession() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("session-token");
+
+  if (!token) {
+    return null;
+  }
+
   try {
-    const { payload } = await jwtVerify(token, secret);
-    return payload;
-  } catch (error) {
+    const verified = await jwtVerify(token.value, key);
+    return verified.payload as {
+      userId: string;
+      role: "USER" | "ADMIN" | "SUPERADMIN";
+    };
+  } catch (err) {
     return null;
   }
 }
 
-export async function getSession() {
-  const cookieStore = cookies();
-  const token = cookieStore.get("auth-token")?.value;
-
-  if (!token) return null;
-
-  return verifyToken(token);
+export async function deleteSession() {
+  const cookieStore = await cookies();
+  cookieStore.delete("session-token");
 }
