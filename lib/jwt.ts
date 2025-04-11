@@ -1,12 +1,8 @@
-import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
+import { cookies } from "next/headers";
+import { getEnvVar } from "./env";
 
-const secretKey = process.env.JWT_SECRET_KEY;
-if (!secretKey) {
-  throw new Error("JWT_SECRET_KEY is not set");
-}
-
-const key = new TextEncoder().encode(secretKey);
+const key = new TextEncoder().encode(getEnvVar("JWT_SECRET_KEY"));
 
 export async function createSession(
   userId: string,
@@ -51,4 +47,16 @@ export async function getSession() {
 export async function deleteSession() {
   const cookieStore = await cookies();
   cookieStore.delete("session-token");
+}
+
+export async function verifyToken(token: string) {
+  try {
+    const verified = await jwtVerify(token, key);
+    return verified.payload as {
+      userId: string;
+      role: "USER" | "ADMIN" | "SUPERADMIN";
+    };
+  } catch (err) {
+    return null;
+  }
 }
