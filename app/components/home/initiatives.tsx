@@ -15,23 +15,47 @@ export default function Initiatives() {
           path={"reach"}
           title={"Reach Every Child"}
           content={
-            "Lorem ipsum dolor sit amet consectetur. Lorem donec sit pellentesque "
+            "Empowering children with knowledge, confidence, and the tools to stand against sexual violence."
           }
         />
         <Card
-          icon={"/images/init-2.png"}
+          icon={"/images/init-4.jpg"}
           path={"girls-talk"}
           title={"Girl's Talk"}
           content={
-            "Lorem ipsum dolor sit amet consectetur. Lorem donec sit pellentesque "
+            "Creating safe spaces where girls can share, learn, and lead conversations on empowerment and rights."
           }
         />
         <Card
-          icon={"/images/ini-1.png"}
-          path={"reach"}
+          icon={"/images/init-5.jpg"}
+          path={"top-girls"}
+          title={"The Top Girls Mentorship Initiative"}
+          content={
+            "Empowering young girls to become confident, capable leaders, and guiding them to pursue their dreams and create meaningful change."
+          }
+        />
+        <Card
+          icon={"/images/init-2.jpg"}
+          path={"safe-communities"}
+          title={"Project Safe Communities"}
+          content={
+            "Building safer campuses and communities through advocacy, education, and grassroots action."
+          }
+        />
+        <Card
+          icon={"/images/init-1.jpg"}
+          path={"walk-against-rape"}
           title={"Walk against Rape"}
           content={
-            "Lorem ipsum dolor sit amet consectetur. Lorem donec sit pellentesque "
+            "We create awareness on sexual and gender-based violence through advocacy walks aimed at sensitizing people on SGBV and its effects in society."
+          }
+        />
+        <Card
+          icon={"/images/init-6.jpg"}
+          path={"love-on-the-street"}
+          title={"Love on the Street( LOTS)"}
+          content={
+            "Love on the Street is one of our charity initiatives aimed at spreading love and reaching out to children in underserved communities."
           }
         />
       </div>
