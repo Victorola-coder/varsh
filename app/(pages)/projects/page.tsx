@@ -192,17 +192,29 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              The Red Dot Gist Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/red-dot/IMG_2552.JPEG"
+              alt="VARSH Foundation's RED DOT PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              The Red Dot Gist Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/red-dot/IMG_2555.JPEG"
+              alt="VARSH Foundation's RED DOT PROJECT"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/red-dot/IMG_2556.JPEG"
+              alt="VARSH Foundation's RED DOT PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -227,17 +239,21 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              The Boys At It Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/boys/IMG_2554.JPEG"
+              alt="VARSH Foundation's RED DOT PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              The Boys At It Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/boys/IMG_2557.JPEG"
+              alt="VARSH Foundation's RED DOT PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
