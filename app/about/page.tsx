@@ -119,8 +119,8 @@ export default function AboutPage() {
         <div className="space-y-4 text-base md:text-lg">
           <div>
             <p className="font-medium">
-              1. Featured by Punch Newspapers. (2022): NGO sensitises Osun girls
-              to sex education harassment.
+              Punch Newspapers: NGO sensitises Osun girls to sex education
+              harassment
             </p>
             <a
               target="_blank"
@@ -133,7 +133,8 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="font-medium">
-              2. Featured by International Centre for Investigative Reporting
+              International Centre for Investigative Reporting: How rape, sexual
+              assault, harassment is forcing girls out of secondary schools
             </p>
             <a
               target="_blank"
@@ -145,6 +146,7 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">PIJA: What is VARSH - Special Feature</p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -155,6 +157,9 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              Edugist: VARSH Foundation Trains Students in Sex Education
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -165,6 +170,9 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              Edugist: Empowering Girls Through Menstrual Hygiene Education
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -175,6 +183,10 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              Edugist: OAU Students Launch Initiative to Combat SGBV in Campus
+              Communities
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -185,6 +197,9 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              BusinessDay: OAU Students Unveil Project to Fight Sexual Violence
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -195,6 +210,10 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              The Guardian: Firm, OAU Students Partner to Tackle Sexual Violence
+              on Campus
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -205,6 +224,10 @@ export default function AboutPage() {
             </a>
           </div>
           <div>
+            <p className="font-medium">
+              Punch Newspapers: OAU Students Unveil Programme to Tackle Sexual
+              Violence
+            </p>
             <a
               target="_blank"
               rel="noopener noreferrer"
