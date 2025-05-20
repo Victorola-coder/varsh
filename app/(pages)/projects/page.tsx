@@ -242,7 +242,7 @@ export default function ProjectsPage() {
           <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
             <Image
               src="/images/boys/IMG_2554.JPEG"
-              alt="VARSH Foundation's RED DOT PROJECT"
+              alt="VARSH Foundation's BOYS PROJECT"
               fill
               className="object-cover"
             />
@@ -250,7 +250,7 @@ export default function ProjectsPage() {
           <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
             <Image
               src="/images/boys/IMG_2557.JPEG"
-              alt="VARSH Foundation's RED DOT PROJECT"
+              alt="VARSH Foundation's BOYS PROJECT"
               fill
               className="object-cover"
             />
@@ -279,17 +279,21 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Top Girls Mentorship Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/top-girls/IMG_2500.JPG"
+              alt="VARSH Foundation's TOP GIRLS PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Top Girls Mentorship Image
-            </div>
+            <Image
+              src="/images/top-girls/IMG_2560.JPG"
+              alt="VARSH Foundation's TOP GIRLS PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -316,16 +320,20 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              16 Days of Activism Image
-            </div>
+            <Image
+              src="/images/16days/IMG_2548.JPEG"
+              alt="VARSH Foundation's 16 days PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              16 Days of Activism Image
-            </div>
+            <Image
+              src="/images/16days/IMG_2546.JPEG"
+              alt="VARSH Foundation's 16 days PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -349,16 +357,36 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Walk Against Rape Image
-            </div>
+            <Image
+              src="/images/rape/IMG_2127.JPG"
+              alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Walk Against Rape Image
-            </div>
+            <Image
+              src="/images/rape/IMG_2502.JPEG"
+              alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
+            <Image
+              src="/images/rape/IMG_2503.JPEG"
+              alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
+            <Image
+              src="/images/rape/IMG_2504.JPEG"
+              alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -382,11 +410,13 @@ export default function ProjectsPage() {
               initiatives, we aim to build a foundation for a safer future for
               children and youth.
             </p>
-            <div className="w-full h-48 bg-gray-200 rounded-lg relative">
-              {/* Replace with actual initiative image */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                School Outreach Image
-              </div>
+            <div className="w-full h-64 bg-gray-200 rounded-lg relative">
+              <Image
+                src="/images/school/IMG_1865.JPEG"
+                alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -403,11 +433,13 @@ export default function ProjectsPage() {
               communities, we aim to create spaces where survivors feel heard,
               valued, and supported on their healing journey.
             </p>
-            <div className="w-full h-48 bg-gray-200 rounded-lg relative">
-              {/* Replace with actual initiative image */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                Religious Sensitization Image
-              </div>
+            <div className="w-full h-64 bg-gray-200 rounded-lg relative">
+              <Image
+                src="/images/church/IMG_4977.JPG"
+                alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -424,11 +456,13 @@ export default function ProjectsPage() {
               tolerated, and communities are more informed and proactive in
               addressing the issue.
             </p>
-            <div className="w-full h-48 bg-gray-200 rounded-lg relative">
-              {/* Replace with actual initiative image */}
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                House Campaign Image
-              </div>
+            <div className="w-full h-64 bg-gray-200 rounded-lg relative">
+              <Image
+                src="/images/IMG_2566.JPEG"
+                alt="VARSH Foundation's WALK AGAINST RAPE PROJECT"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -447,7 +481,7 @@ export default function ProjectsPage() {
             <div className="w-full h-48 bg-gray-200 rounded-lg relative">
               {/* Replace with actual initiative image */}
               <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                Legal Aid Image
+                Legal Aid
               </div>
             </div>
           </div>
