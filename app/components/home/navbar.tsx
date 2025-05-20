@@ -5,10 +5,10 @@ import { Button } from "../ui";
 import Image from "next/image";
 // import { Logo } from "../svgs";
 import logo from "@/public/images/logo.svg";
+import { usePathname } from "next/navigation";
+import { fadeIn, slideIn } from "../animations";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { fadeIn, slideIn } from "../animations";
-import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpened, setIsOpened] = useState<boolean>(false);

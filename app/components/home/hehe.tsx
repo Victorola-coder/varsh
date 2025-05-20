@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button, Image } from "../ui";
-import area from "@/public/images/hehe.jpeg";
+import area from "@/public/images/SEC2.png";
 
 export default function More() {
   return (

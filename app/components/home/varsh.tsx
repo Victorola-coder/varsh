@@ -3,8 +3,8 @@
 import React from "react";
 import { Image } from "../ui";
 import { CheckIcon } from "../svgs";
-import child from "@/public/images/child.svg";
 import { motion } from "framer-motion";
+import child from "@/public/images/SEC3.png";
 import { fadeIn, slideIn, staggerContainer } from "../animations";
 
 function Strides({ content }: { content: React.ReactNode }) {

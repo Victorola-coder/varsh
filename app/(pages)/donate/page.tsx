@@ -157,11 +157,13 @@ export default function DonatePage() {
                 <div className="bg-white p-4 rounded-lg">
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <span className="font-medium">Bank Name:</span>
-                    <span>Bank Name Here</span>
+                    <span>United Bank of Africa (UBA)</span>
                     <span className="font-medium">Account Name:</span>
-                    <span>VARSH Foundation</span>
+                    <span>
+                      Voices Against Rape and sexual harrassment Foundation
+                    </span>
                     <span className="font-medium">Account Number:</span>
-                    <span>0123456789</span>
+                    <span>1026410129</span>
                   </div>
                 </div>
               </div>

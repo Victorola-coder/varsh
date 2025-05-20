@@ -4,8 +4,10 @@ import React from "react";
 import { Button } from "../ui";
 import { motion } from "framer-motion";
 import { fadeIn } from "../animations";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <motion.div
       initial="initial"
