@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://varsh.org"),
+  metadataBase: new URL("https://varshfoundation.org"),
   icons: {
     icon: "/images/logo.svg",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   description:
     "Together for a safer, More equal world - Free from sexual abuse",
   applicationName: "Varsh Foundation",
-  authors: [{ name: "Varsh Foundation", url: "https://varsh.org" }],
+  authors: [{ name: "Varsh Foundation", url: "https://varshfoundation.org" }],
   keywords: [
     "NGO",
     "Varsh",
@@ -55,13 +55,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://varsh.org",
+    url: "https://varshfoundation.org",
     title: "Varsh Foundation - Reach one, Reach all",
     siteName: "Varsh Foundation",
     locale: "en_US",
     images: [
       {
-        url: "https://varsh.org/images/logo.svg",
+        url: "https://varshfoundation.org/images/logo.svg",
         width: 1200,
         height: 630,
         alt: "Varsh Foundation - Reach one, Reach all",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description:
       "Together for a safer, More equal world - Free from sexual abuse",
     card: "summary_large_image",
-    images: ["https://varsh.org/images/logo.svg"],
+    images: ["https://varshfoundation.org/images/logo.svg"],
   },
   appleWebApp: {
     capable: true,
