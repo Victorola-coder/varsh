@@ -244,7 +244,7 @@ export default function AboutPage() {
         <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">
           Meet The Team
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {[
             {
               name: "Aworanti Salvation Grace",
@@ -284,6 +284,7 @@ export default function AboutPage() {
             },
             {
               name: "Chidiebere Nnadiegbulam",
+              image: "/team/chidi.jpg",
               title: "Monitoring and Evaluation Officer",
               bio: "Chidiebere Nnadiegbulam is an experienced geospatial professional known for his creativity and visualisation abilities. Over the past decade, he has significantly contributed to environmental sustainability and humanitarian efforts through dedicated mentorship at the International Federation of Surveyors (FIG) and environmental protection projects. Chidiebere is dedicated to driving innovations and making a lasting impact through cutting-edge geospatial technologies and community-focused initiatives. When not working, he enjoys exploring the wonders of God's creation in nature, which continually fuels his creativity and passion.",
             },
@@ -372,7 +373,7 @@ export default function AboutPage() {
         <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center">
           Legal Team
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {[
             {
               name: "Festus Ogun",
@@ -380,22 +381,37 @@ export default function AboutPage() {
               image: "/team/festus-legal.JPG",
               bio: "Mr. Festus Ogun is the Managing Partner and head of the Litigation, Arbitration and Alternative Dispute Resolution team of FO LEGAL. He is a seasoned dispute resolution expert, with years of experience handling commercial litigation for a wide spectrum of domestic and international clients across several sectors of the Nigerian economy. Festus has a remarkable track record of defending victims of human rights abuses across Nigeria. He co-founded the Campaign for Justice Reform and serves in various legal advisory roles, championing issues of digital freedom, social justice, and environmental rights. Widely published and frequently featured in national and international media, Festus is recognized for his legal excellence, leadership, and commitment to advancing justice and human rights.",
             },
-            {
-              name: "Akinkunmi Abolade",
-              title: "Legal Adviser",
-              image: "/team/akinkunmi-legal.jpg",
-              bio: "Akinkunmi Abolade is a lawyer. He is passionate about sustainable development and poverty alleviation in Nigeria and Africa. As such, asides being able to advise businesses as it relates to commercial transactions, he is skilled in advising businesses on how such commercial transactions affect sustainability and human rights. He is passionate about human rights and believes that people should have the freedom to do whatever they desire as long as third parties are not affected. He advocates that laws should be made to promote gender equality and the world should be safer for women.",
-            },
+
             {
               name: "Grace Odewuyi",
               title: "Legal Adviser",
               image: "/team/grace-legal.JPG",
               bio: "Grace Odewuyi is a legal practitioner who is passionate about criminal justice, human rights, social impact and legal advocacy. A graduate of Osun State University and the Nigerian Law School (Lagos Campus), she has worked with the Legal Aid Council of Nigeria, providing essential legal services to those who cannot afford representation. Grace is actively involved in social impact projects that address systemic inequalities and promote access to justice. Her combined experience in legal practice and community service demonstrates her commitment to using law as a tool for positive social change.",
             },
+
             {
               name: "Sophia Orisaleye",
+              image: "/team/sophia.jpg",
               title: "Law Enforcement Liaison",
               bio: "Orisaleye Sophia is a police officer and one of the founding members of VARSH, deeply committed to advocating for the rights of women and children. She uses her voice and writing to challenge rape, discrimination, and injustice, working powerfully behind the scenes as a background writer and advocate for change. In her personal time, she enjoys reading novels and writing, using her passion for storytelling to inspire awareness and amplify the voices of the marginalized.",
+            },
+            {
+              name: "Grace Eniyandunmo",
+              title: "Law Enforcement Liaison",
+              image: "/team/grace.JPG",
+              bio: "Grace Eniyandunmo is a legal professional with a strong passion for gender justice, human rights, and community advocacy. With a background in law and a growing portfolio of pro bono work, Grace brings her expertise to support the rights of women, children, and survivors of sexual and gender-based violence.",
+            },
+            {
+              name: "Comfort Ayomide Komolafe",
+              title: "Law Enforcement Liaison",
+              image: "/team/comfort.jpg",
+              bio: "  Comfort Ayomide Komolafe is a dedicated and highly driven lawyer, with a passion for justice and human rights. Also, she is an Associate Member, Institute of Chartered Mediators and Conciliators, a recognized body for dispute resolution practitioners in Nigeria. Her work focuses on ensuring that survivors have access to justice, and that the Initiative’s programs and advocacy efforts are grounded in strong legal frameworks.",
+            },
+            {
+              name: "Akinkunmi Abolade",
+              title: "Legal Adviser",
+              image: "/team/akinkunmi-legal.jpg",
+              bio: "Akinkunmi Abolade is a lawyer. He is passionate about sustainable development and poverty alleviation in Nigeria and Africa. As such, asides being able to advise businesses as it relates to commercial transactions, he is skilled in advising businesses on how such commercial transactions affect sustainability and human rights. He is passionate about human rights and believes that people should have the freedom to do whatever they desire as long as third parties are not affected. He advocates that laws should be made to promote gender equality and the world should be safer for women.",
             },
           ].map((member, index) => (
             <div
