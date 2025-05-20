@@ -56,17 +56,40 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              RECH Project Image
-            </div>
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/rech/IMG_2527.JPEG"
+              alt="VARSH Foundation's Reach Every Child (RECH) project - Children in a community outreach session"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              RECH Project Image
-            </div>
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/rech/IMG_2524.JPEG"
+              alt="VARSH Foundation's Reach Every Child (RECH) project - Educational workshop with children"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/rech/IMG_2536.JPEG"
+              alt="VARSH Foundation's RECH project community engagement"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/rech/IMG_2539.JPEG"
+              alt="VARSH Foundation's RECH project educational session"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -90,17 +113,22 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Girls Talk Image
-            </div>
+          <div className="w-full h-64 relative rounded-lg overflow-hidden">
+            <Image
+              src="/images/girls/IMG_2540.JPEG"
+              alt="VARSH Foundation's GIRLS TALK"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Girls Talk Image
-            </div>
+          {/* 2 */}
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/girls/IMG_2550.JPEG"
+              alt="VARSH Foundation's GIRLS TALK"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -124,17 +152,21 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Project Safe Communities Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/safe/IMG_1006.JPEG"
+              alt="VARSH Foundation's SAFE PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
-          <div className="w-full h-64 bg-gray-200 rounded-lg relative">
-            {/* Replace with actual project image */}
-            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-              Project Safe Communities Image
-            </div>
+          <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
+            <Image
+              src="/images/safe/IMG_1008.JPG"
+              alt="VARSH Foundation's SAFE PROJECT"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
