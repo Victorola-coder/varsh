@@ -5,7 +5,6 @@ import {
   Varsh,
   Newsletter,
   Initiatives,
-  CampusClubs,
 } from "./components/home";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
       <Initiatives />
       <Varsh />
       <Newsletter />
-      <CampusClubs />
     </main>
   );
 }

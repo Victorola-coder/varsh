@@ -5,7 +5,6 @@ import { Input, Button } from "../ui";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "../animations";
-import Image from "next/image";
 
 export default function Newsletter() {
   const [email, setEmail] = useState<string>("");
@@ -175,7 +174,7 @@ export default function Newsletter() {
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                     setEmail(e.target.value)
                   }
-                  className="w-full bg-white border border-[#E5E5E5] focus:ring-2 focus:ring-[#FF3600]/20 focus:border-[#FF3600] rounded-lg"
+                  className="w-full bg-white border !border-[#E5E5E5] !text-black focus:ring-2 focus:ring-[#FF3600]/20 focus:border-[#FF3600] rounded-lg"
                 />
               </div>
 

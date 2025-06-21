@@ -119,18 +119,17 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <Link href="/donate" className="ml-6">
+            <Button
+              variant="danger"
+              className={`md:w-[180px] ${
+                isActive("/donate") ? "bg-[#e13000]" : ""
+              }`}
+            >
+              Donate
+            </Button>
+          </Link>
         </div>
-
-        <Link href="/donate">
-          <Button
-            variant="danger"
-            className={`hidden md:block md:w-[180px] ${
-              isActive("/donate") ? "bg-[#e13000]" : ""
-            }`}
-          >
-            Donate
-          </Button>
-        </Link>
 
         {/* MOBILE NAV */}
         <div className="md:hidden" ref={navRef}>

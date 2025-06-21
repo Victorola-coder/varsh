@@ -46,15 +46,23 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: "/icons/facebook.svg",
-    href: "https://facebook.com",
+    href: "https://facebook.com/varshfoundation",
   },
   {
     name: "Instagram",
     icon: "/icons/instagram.svg",
-    href: "https://instagram.com",
+    href: "https://instagram.com/varshfoundation",
   },
-  { name: "Twitter", icon: "/icons/twitter.svg", href: "https://twitter.com" },
-  { name: "YouTube", icon: "/icons/youtube.svg", href: "https://youtube.com" },
+  {
+    name: "Twitter",
+    icon: "/icons/twitter.svg",
+    href: "https://twitter.com/varshfoundation",
+  },
+  {
+    name: "YouTube",
+    icon: "/icons/youtube.svg",
+    href: "https://youtube.com/@varshfoundation",
+  },
 ];
 
 export default function Footer() {
