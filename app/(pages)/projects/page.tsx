@@ -241,7 +241,7 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div className="w-full h-64 bg-gray-200 rounded-lg relative overflow-hidden">
             <Image
-              src="/images/boys/IMG_2554.JPEG"
+              src="/images/boys/IMG_3484.jpg"
               alt="VARSH Foundation's BOYS PROJECT"
               fill
               className="object-cover"

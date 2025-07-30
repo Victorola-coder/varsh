@@ -119,22 +119,22 @@ Our mission is to protect children's rights and well-being by advocating for the
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-[60px]"
           >
             <ReachCard
-              number="5,000+"
+              number="85,000+"
               label="Lives Impacted"
               description="Individuals reached through our programs and initiatives"
             />
             <ReachCard
-              number="15+"
+              number="37+"
               label="Communities"
               description="Local communities where we have active programs"
             />
             <ReachCard
-              number="6"
+              number="11"
               label="University Clubs"
               description="Campus clubs spreading awareness in universities"
             />
             <ReachCard
-              number="50+"
+              number="250+"
               label="Volunteers"
               description="Dedicated volunteers working with us across Nigeria"
             />
