@@ -1,5 +1,5 @@
 {
-  "name": "next-temp",
+  "name": "varsh org",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,20 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "6.6.0",
+    "@prisma/client": "^6.13.0",
     "@types/bcryptjs": "^2.4.6",
     "aos": "^2.3.4",
     "axios": "^1.7.9",
     "bcryptjs": "^3.0.2",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
-    "framer-motion": "^11.11.9",
+    "framer-motion": "^10.16.4",
     "jose": "^6.0.10",
     "lucide-react": "^0.471.1",
-    "next": "^15.1.4",
-    "prisma": "^6.6.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^14.0.4",
+    "prisma": "^6.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sonner": "^1.7.2",
     "zod": "^3.24.1"
   },
