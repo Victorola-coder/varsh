@@ -5,8 +5,14 @@ import { Input, Button } from "../ui";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, slideIn } from "../animations";
+import type { Newsletter as NewsletterContent } from "@/lib/default-content";
+import { newsletterDefault } from "@/lib/default-content";
 
-export default function Newsletter() {
+export default function Newsletter({
+  newsletter = newsletterDefault,
+}: {
+  newsletter?: NewsletterContent;
+}) {
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -57,74 +63,41 @@ export default function Newsletter() {
               variants={slideIn}
               className="inline-block px-4 py-1 mb-4 text-sm font-medium rounded-full bg-[#FF3600]/10 text-[#FF3600]"
             >
-              Join Our Community
+              {newsletter.badge}
             </motion.span>
             <motion.h3
               variants={slideIn}
               className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] font-bold"
             >
-              Never Miss an Update
+              {newsletter.heading}
             </motion.h3>
             <motion.p
               variants={fadeIn}
               className="mt-4 text-[16px] md:text-[18px] leading-[1.6] text-[#4A4A4A] max-w-md"
             >
-              Subscribe to our newsletter to receive the latest news, impact
-              stories, and upcoming events directly to your inbox.
+              {newsletter.body}
             </motion.p>
 
             <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-[#FF3600]"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+              {newsletter.bullets.map((bullet, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-[#FF3600]"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-[#4A4A4A]">{bullet}</p>
                 </div>
-                <p className="text-[#4A4A4A]">Monthly impact reports</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-[#FF3600]"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <p className="text-[#4A4A4A]">Exclusive event invitations</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-[#FF3600]/20 flex items-center justify-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-[#FF3600]"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <p className="text-[#4A4A4A]">Volunteer opportunities</p>
-              </div>
+              ))}
             </div>
           </motion.div>
 

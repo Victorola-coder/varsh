@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { AuthProvider, useAuth } from "./context/auth-context";
+import Shell from "./dashboard/_components/Shell";
 
 function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -35,7 +36,7 @@ function ProtectedContent({ children }: { children: React.ReactNode }) {
     return null;
   }
 
-  return <>{children}</>;
+  return <Shell>{children}</Shell>;
 }
 
 export default AdminLayout;

@@ -3,10 +3,9 @@ import { Toaster } from "sonner";
 import localFont from "next/font/local";
 import { Lato } from "next/font/google";
 import { AOS } from "./components/global";
-import { Navbar } from "./components/home";
-import { Footer } from "./components/global";
 import type { Metadata, Viewport } from "next";
 import Providers from "./components/providers";
+import PublicChrome from "./components/public-chrome";
 
 const cabinetGrotesk = localFont({
   display: "swap",
@@ -109,9 +108,7 @@ export default function RootLayout({
         <Providers>
           <Toaster richColors />
           <AOS />
-          <Navbar />
-          {children}
-          <Footer />
+          <PublicChrome>{children}</PublicChrome>
         </Providers>
       </body>
     </html>
