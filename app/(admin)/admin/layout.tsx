@@ -1,8 +1,17 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { AuthProvider, useAuth } from "./context/auth-context";
 
 function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  // The login page must render without the auth gate (otherwise it's hidden
+  // for the very users who need to sign in).
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
+  }
+
   return (
     <AuthProvider>
       <ProtectedContent>{children}</ProtectedContent>

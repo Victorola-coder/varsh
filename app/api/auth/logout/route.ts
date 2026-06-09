@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
+import { deleteSession } from "@/lib/jwt";
 
 export async function POST() {
-  const response = NextResponse.json({ success: true });
-
-  response.cookies.delete("auth-token");
-
-  return response;
+  await deleteSession();
+  return NextResponse.json({ success: true });
 }

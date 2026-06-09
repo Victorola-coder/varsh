@@ -100,8 +100,114 @@ model CampusClub {
   description String?
   logo        String?
   members     Int      @default(0)
+  // Public-facing / coordinator fields
+  location    String?
+  clubName    String?
+  imageUrl    String?
+  coordinator String?
+  phone       String?
+  email       String?
+  order       Int      @default(0)
+  published   Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// Editable website content
+// ---------------------------------------------------------------------------
+
+/// Key/value store for "singleton" sections of the site (hero, about story,
+/// newsletter copy, the "More" band, etc.). `value` holds an arbitrary JSON
+/// shape per key so each section can evolve without a migration.
+model SiteContent {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+/// Featured Initiatives cards on the homepage.
+model Initiative {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  image       String
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+/// "Our Thematic Areas" cards.
+model ThematicArea {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  icon      String
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// "Our Reach" impact statistics.
+model ReachStat {
+  id          String   @id @default(cuid())
+  number      String
+  label       String
+  description String
+  order       Int      @default(0)
+  updatedAt   DateTime @updatedAt
+}
+
+/// Bullet points in the VARSH Foundation "strides" list.
+model Stride {
+  id        String   @id @default(cuid())
+  label     String
+  text      String
+  order     Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+/// Team members for the About page.
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  bio       String?
+  image     String?
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Projects / programmes.
+model Project {
+  id        String    @id @default(cuid())
+  title     String
+  slug      String    @unique
+  summary   String?
+  content   String?
+  image     String?
+  date      DateTime?
+  order     Int       @default(0)
+  published Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+/// Frequently asked questions.
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String
+  category  String?
+  order     Int      @default(0)
+  published Boolean  @default(true)
+  updatedAt DateTime @updatedAt
 }
 
 enum Role {
