@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { requireAdmin } from "@/lib/admin-auth";
 import { getResource } from "@/lib/resources";
+import { contentTag } from "@/lib/content";
 
 type Ctx = { params: { resource: string } };
 
@@ -38,6 +40,7 @@ export async function POST(req: NextRequest, { params }: Ctx) {
 
   try {
     const created = await resource.model.create({ data: parsed.data });
+    revalidateTag(contentTag(params.resource));
     return NextResponse.json(created, { status: 201 });
   } catch (err: any) {
     if (err?.code === "P2002") {

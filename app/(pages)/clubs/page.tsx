@@ -1,73 +1,8 @@
 import React from "react";
+import { getClubs } from "@/lib/content";
 
-export default function ClubsPage() {
-  const clubs = [
-    {
-      name: "Obafemi Awolowo University, Ile-Ife, Osun State",
-      contact: "Anjola Abolade Oyelola",
-      phone: "+2349036770892",
-      email: "varshoau@gmail.com",
-    },
-    {
-      name: "University of Ilorin, Ilorin, Kwara State",
-      contact: "Evelyn Modupeoluwa Onaolapo",
-      phone: "+2348107430869",
-      email: "varshunilorinnclub@gmail.com",
-    },
-    {
-      name: "Federal University of Agriculture, Abeokuta, Ogun State",
-      contact: "Afolabi Olawunmi Joyqueen",
-      phone: "+2347079720917",
-      email: "varshfunnabclub@gmail.com",
-    },
-
-    {
-      name: "Nigerian Institute of Journalism, Ikeja, Lagos State",
-      contact: "Oluwaseyifunmi Mary Adebayo",
-      phone: "+23470838176",
-      email: "nijvarshfoundation@gmail.com",
-    },
-    {
-      name: "Olabisi Onabanjo University, Ago Iwoye, Ogun State",
-      contact: "Tolani Deborah Ewuyemi",
-      phone: "+2347041679545",
-      email: "varshoouclub@gmail.com",
-    },
-    {
-      name: "Osun State University, Osogbo, Osun State",
-      contact: "Samuel Oluwafemi Ajala",
-      phone: "+2348156403260",
-      email: "varshuniosunclub@gmail.com",
-    },
-    {
-      name: "Federal University Lokoja, Lokoja, Kogi State",
-      contact: "",
-    },
-    {
-      name: "Ahmadu Bello University, Zaria, Kaduna State",
-      contact: "",
-    },
-    {
-      name: "Osun State Polytechnic, Iree, Osun State",
-      contact: "",
-    },
-    {
-      name: "Tai Solarin University of Education, Ijebu Ode, Ogun State",
-      contact: "",
-    },
-    {
-      name: "Osun State College Of Education, Ila-Orangun, Osun State, in Affiliation With Ekiti State University",
-      contact: "",
-    },
-    {
-      name: "Federal University of Technology, Minna, Niger State",
-      contact: "",
-    },
-    {
-      name: "Federal University of Technology, Akure, Ondo State",
-      contact: "",
-    },
-  ];
+export default async function ClubsPage() {
+  const clubs = await getClubs();
 
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
@@ -85,9 +20,12 @@ export default function ClubsPage() {
               {/* Replace with actual campus club logo or image */}
               <div className="text-gray-500 font-medium">Club Image</div>
             </div>
-            <h2 className="text-xl font-bold mb-3">{club.name}</h2>
+            <h2 className="text-xl font-bold mb-3">
+              {club.name}
+              {club.location ? `, ${club.location}` : ""}
+            </h2>
 
-            {club.contact ? (
+            {club.coordinator ? (
               <div className="space-y-2">
                 <div className="flex items-center text-gray-600">
                   <svg
@@ -104,7 +42,7 @@ export default function ClubsPage() {
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
-                  <span>{club.contact} (Coordinator)</span>
+                  <span>{club.coordinator} (Coordinator)</span>
                 </div>
 
                 {club.phone && (

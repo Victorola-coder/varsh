@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { requireAdmin } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
 import { singletonSchemas } from "@/lib/content-schemas";
+import { contentTag } from "@/lib/content";
 
 type Ctx = { params: { key: string } };
 
@@ -41,5 +43,6 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
     update: { value: parsed.data },
     create: { key: params.key, value: parsed.data },
   });
+  revalidateTag(contentTag(params.key));
   return NextResponse.json(row.value);
 }

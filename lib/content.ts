@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import { prisma } from "./prisma";
 import {
   heroDefault,
@@ -8,6 +9,10 @@ import {
   thematicAreasDefault,
   reachStatsDefault,
   stridesDefault,
+  teamDefault,
+  projectsDefault,
+  faqsDefault,
+  clubsDefault,
   type Hero,
   type MoreBand,
   type About,
@@ -16,10 +21,6 @@ import {
   type ThematicAreaItem,
   type ReachStatItem,
   type StrideItem,
-  teamDefault,
-  projectsDefault,
-  faqsDefault,
-  clubsDefault,
   type TeamMemberItem,
   type ProjectItem,
   type FaqItem,
@@ -30,7 +31,26 @@ import {
  * Server-side content accessors for the public site. Each reads from the DB
  * and falls back to the bundled defaults when the row is missing or the DB is
  * unreachable, so the site always renders.
+ *
+ * Reads go through the Next data cache rather than running on every request,
+ * which is what lets the public pages render statically. Each accessor is
+ * tagged, and the admin write routes call `revalidateTag` on save — so an edit
+ * still shows up immediately without making every visitor pay for a query.
  */
+
+/** Tag applied to every content read; busting it refreshes the whole site. */
+export const CONTENT_TAG = "content";
+
+/** Per-section tag. Matches the admin route slugs (`/api/admin/...`). */
+export const contentTag = (name: string) => `content:${name}`;
+
+/** Wrap a DB read in the data cache, tagged so admin writes can bust it. */
+function cached<T>(fn: () => Promise<T>, name: string) {
+  return unstable_cache(fn, [contentTag(name)], {
+    tags: [CONTENT_TAG, contentTag(name)],
+    revalidate: 3600,
+  });
+}
 
 async function singleton<T>(key: string, fallback: T): Promise<T> {
   try {
@@ -41,102 +61,134 @@ async function singleton<T>(key: string, fallback: T): Promise<T> {
   }
 }
 
-export const getHero = () => singleton<Hero>("hero", heroDefault);
-export const getMore = () => singleton<MoreBand>("more", moreDefault);
-export const getAbout = () => singleton<About>("about", aboutDefault);
-export const getNewsletter = () =>
-  singleton<Newsletter>("newsletter", newsletterDefault);
-
-export async function getInitiatives(): Promise<InitiativeItem[]> {
+/** Read a published collection, falling back to the bundled defaults. */
+async function collection<T>(
+  read: () => Promise<unknown[]>,
+  fallback: T[]
+): Promise<T[]> {
   try {
-    const rows = await prisma.initiative.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? rows : initiativesDefault;
+    const rows = await read();
+    return rows.length ? (rows as T[]) : fallback;
   } catch {
-    return initiativesDefault;
+    return fallback;
   }
 }
 
-export async function getThematicAreas(): Promise<ThematicAreaItem[]> {
-  try {
-    const rows = await prisma.thematicArea.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? rows : thematicAreasDefault;
-  } catch {
-    return thematicAreasDefault;
-  }
-}
+// --- Homepage singletons ---------------------------------------------------
 
-export async function getReachStats(): Promise<ReachStatItem[]> {
-  try {
-    const rows = await prisma.reachStat.findMany({ orderBy: { order: "asc" } });
-    return rows.length ? rows : reachStatsDefault;
-  } catch {
-    return reachStatsDefault;
-  }
-}
+export const getHero = cached(
+  () => singleton<Hero>("hero", heroDefault),
+  "hero"
+);
+export const getMore = cached(
+  () => singleton<MoreBand>("more", moreDefault),
+  "more"
+);
+export const getAbout = cached(
+  () => singleton<About>("about", aboutDefault),
+  "about"
+);
+export const getNewsletter = cached(
+  () => singleton<Newsletter>("newsletter", newsletterDefault),
+  "newsletter"
+);
 
-export async function getStrides(): Promise<StrideItem[]> {
-  try {
-    const rows = await prisma.stride.findMany({ orderBy: { order: "asc" } });
-    return rows.length ? rows : stridesDefault;
-  } catch {
-    return stridesDefault;
-  }
-}
+// --- Homepage collections --------------------------------------------------
 
-// ---------------------------------------------------------------------------
-// About / Projects / FAQs / Clubs
-// ---------------------------------------------------------------------------
+export const getInitiatives = cached(
+  () =>
+    collection<InitiativeItem>(
+      () =>
+        prisma.initiative.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      initiativesDefault
+    ),
+  "initiatives"
+);
 
-export async function getTeam(): Promise<TeamMemberItem[]> {
-  try {
-    const rows = await prisma.teamMember.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? (rows as TeamMemberItem[]) : teamDefault;
-  } catch {
-    return teamDefault;
-  }
-}
+export const getThematicAreas = cached(
+  () =>
+    collection<ThematicAreaItem>(
+      () =>
+        prisma.thematicArea.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      thematicAreasDefault
+    ),
+  "thematic-areas"
+);
 
-export async function getProjects(): Promise<ProjectItem[]> {
-  try {
-    const rows = await prisma.project.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? (rows as unknown as ProjectItem[]) : projectsDefault;
-  } catch {
-    return projectsDefault;
-  }
-}
+export const getReachStats = cached(
+  () =>
+    collection<ReachStatItem>(
+      () => prisma.reachStat.findMany({ orderBy: { order: "asc" } }),
+      reachStatsDefault
+    ),
+  "reach-stats"
+);
 
-export async function getFaqs(): Promise<FaqItem[]> {
-  try {
-    const rows = await prisma.faq.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? (rows as FaqItem[]) : faqsDefault;
-  } catch {
-    return faqsDefault;
-  }
-}
+export const getStrides = cached(
+  () =>
+    collection<StrideItem>(
+      () => prisma.stride.findMany({ orderBy: { order: "asc" } }),
+      stridesDefault
+    ),
+  "strides"
+);
 
-export async function getClubs(): Promise<CampusClubItem[]> {
-  try {
-    const rows = await prisma.campusClub.findMany({
-      where: { published: true },
-      orderBy: { order: "asc" },
-    });
-    return rows.length ? (rows as CampusClubItem[]) : clubsDefault;
-  } catch {
-    return clubsDefault;
-  }
-}
+// --- About / Projects / FAQs / Clubs --------------------------------------
+
+export const getTeam = cached(
+  () =>
+    collection<TeamMemberItem>(
+      () =>
+        prisma.teamMember.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      teamDefault
+    ),
+  "team"
+);
+
+export const getProjects = cached(
+  () =>
+    collection<ProjectItem>(
+      () =>
+        prisma.project.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      projectsDefault
+    ),
+  "projects"
+);
+
+export const getFaqs = cached(
+  () =>
+    collection<FaqItem>(
+      () =>
+        prisma.faq.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      faqsDefault
+    ),
+  "faqs"
+);
+
+export const getClubs = cached(
+  () =>
+    collection<CampusClubItem>(
+      () =>
+        prisma.campusClub.findMany({
+          where: { published: true },
+          orderBy: { order: "asc" },
+        }),
+      clubsDefault
+    ),
+  "clubs"
+);

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { requireAdmin } from "@/lib/admin-auth";
 import { getResource } from "@/lib/resources";
+import { contentTag } from "@/lib/content";
 
 type Ctx = { params: { resource: string; id: string } };
 
@@ -42,6 +44,7 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
       where: { id: params.id },
       data: parsed.data,
     });
+    revalidateTag(contentTag(params.resource));
     return NextResponse.json(updated);
   } catch (err: any) {
     if (err?.code === "P2025") {
@@ -69,6 +72,7 @@ export async function DELETE(_req: NextRequest, { params }: Ctx) {
 
   try {
     await resource.model.delete({ where: { id: params.id } });
+    revalidateTag(contentTag(params.resource));
     return NextResponse.json({ success: true });
   } catch (err: any) {
     if (err?.code === "P2025") {

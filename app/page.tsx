@@ -17,8 +17,8 @@ import {
   getStrides,
 } from "@/lib/content";
 
-// Content is editable from the admin, so render fresh on each request.
-export const dynamic = "force-dynamic";
+// Content reads are cached and tag-revalidated on save (see lib/content.ts),
+// so this renders statically and still updates the moment an admin saves.
 
 export default async function Home() {
   const [hero, more, about, newsletter, initiatives, areas, stats, strides] =

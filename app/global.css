@@ -70,3 +70,20 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* Rich text stored in Project.content (HTML authored from the admin). */
+.project-body p {
+  margin-bottom: 1rem;
+}
+.project-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+.project-body ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.project-body ul li {
+  margin-bottom: 0.5rem;
+}

@@ -46,6 +46,7 @@ export const strideSchema = z.object({
 export const teamMemberSchema = z.object({
   name: z.string().min(1),
   role: z.string().min(1),
+  group: z.enum(["team", "patrons", "legal"]).default("team"),
   bio: z.string().optional().nullable(),
   image: z.string().optional().nullable(),
   order,
@@ -58,6 +59,8 @@ export const projectSchema = z.object({
   summary: z.string().optional().nullable(),
   content: z.string().optional().nullable(),
   image: z.string().optional().nullable(),
+  images: z.array(z.string()).default([]),
+  category: z.enum(["main", "other"]).default("main"),
   date: z.coerce.date().optional().nullable(),
   order,
   published,
