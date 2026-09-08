@@ -176,6 +176,8 @@ model TeamMember {
   id        String   @id @default(cuid())
   name      String
   role      String
+  /// Which block on the About page: "team" | "patrons" | "legal".
+  group     String   @default("team")
   bio       String?
   image     String?
   order     Int      @default(0)
@@ -190,8 +192,13 @@ model Project {
   title     String
   slug      String    @unique
   summary   String?
+  /// Long-form body, stored as HTML so paragraphs/lists survive editing.
   content   String?
   image     String?
+  /// Gallery images shown beneath the write-up.
+  images    String[]
+  /// "main" for the full write-ups, "other" for the Other Initiatives grid.
+  category  String    @default("main")
   date      DateTime?
   order     Int       @default(0)
   published Boolean   @default(true)

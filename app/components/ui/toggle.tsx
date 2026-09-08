@@ -1,3 +1,5 @@
+"use client";
+
 export default function Toggle({ checked, onChange, className }: ToggleProps) {
   return (
     <button

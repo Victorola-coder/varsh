@@ -16,6 +16,14 @@ import {
   type ThematicAreaItem,
   type ReachStatItem,
   type StrideItem,
+  teamDefault,
+  projectsDefault,
+  faqsDefault,
+  clubsDefault,
+  type TeamMemberItem,
+  type ProjectItem,
+  type FaqItem,
+  type CampusClubItem,
 } from "./default-content";
 
 /**
@@ -78,5 +86,57 @@ export async function getStrides(): Promise<StrideItem[]> {
     return rows.length ? rows : stridesDefault;
   } catch {
     return stridesDefault;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// About / Projects / FAQs / Clubs
+// ---------------------------------------------------------------------------
+
+export async function getTeam(): Promise<TeamMemberItem[]> {
+  try {
+    const rows = await prisma.teamMember.findMany({
+      where: { published: true },
+      orderBy: { order: "asc" },
+    });
+    return rows.length ? (rows as TeamMemberItem[]) : teamDefault;
+  } catch {
+    return teamDefault;
+  }
+}
+
+export async function getProjects(): Promise<ProjectItem[]> {
+  try {
+    const rows = await prisma.project.findMany({
+      where: { published: true },
+      orderBy: { order: "asc" },
+    });
+    return rows.length ? (rows as unknown as ProjectItem[]) : projectsDefault;
+  } catch {
+    return projectsDefault;
+  }
+}
+
+export async function getFaqs(): Promise<FaqItem[]> {
+  try {
+    const rows = await prisma.faq.findMany({
+      where: { published: true },
+      orderBy: { order: "asc" },
+    });
+    return rows.length ? (rows as FaqItem[]) : faqsDefault;
+  } catch {
+    return faqsDefault;
+  }
+}
+
+export async function getClubs(): Promise<CampusClubItem[]> {
+  try {
+    const rows = await prisma.campusClub.findMany({
+      where: { published: true },
+      orderBy: { order: "asc" },
+    });
+    return rows.length ? (rows as CampusClubItem[]) : clubsDefault;
+  } catch {
+    return clubsDefault;
   }
 }

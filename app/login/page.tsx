@@ -31,7 +31,11 @@ export default function LoginPage() {
         throw new Error(data.error || "Login failed");
       }
 
-      router.push("/dashboard");
+      if (data.role !== "ADMIN" && data.role !== "SUPERADMIN") {
+        throw new Error("Unauthorized");
+      }
+
+      router.push("/admin/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
