@@ -64,7 +64,7 @@ export default function SingletonEditor({
         <div className="mt-8 text-sm text-gray-400">Loading…</div>
       ) : (
         <form
-          className="mt-6 space-y-5 rounded-lg border border-gray-200 bg-white p-6"
+          className="mt-6 space-y-5 rounded-lg border border-gray-200 bg-white p-4 sm:p-6"
           onSubmit={(e) => {
             e.preventDefault();
             save();
@@ -91,11 +91,11 @@ export default function SingletonEditor({
             </div>
           ))}
 
-          <div className="flex justify-end pt-2">
+          <div className="flex pt-2 sm:justify-end">
             <button
               type="submit"
               disabled={saving}
-              className="rounded-md bg-[#FF3600] px-5 py-2 text-sm font-medium text-white hover:bg-[#e13000] disabled:opacity-50"
+              className="w-full rounded-full bg-[#FF3600] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#e13000] disabled:opacity-50 sm:w-auto"
             >
               {saving ? "Saving…" : "Save changes"}
             </button>

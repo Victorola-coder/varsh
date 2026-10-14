@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Field, FieldInput, Values, initialValues } from "./fields";
+import ConfirmDialog from "@/app/components/admin/confirm-dialog";
 
 type Item = Values & { id: string };
 
@@ -24,6 +25,8 @@ export default function ResourceManager({
   const [editing, setEditing] = useState<Item | "new" | null>(null);
   const [values, setValues] = useState<Values>({});
   const [saving, setSaving] = useState(false);
+  const [pendingDelete, setPendingDelete] = useState<Item | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   const listColumns = fields.filter((f) => f.inList);
   const columns = listColumns.length ? listColumns : fields.slice(0, 2);
@@ -84,8 +87,10 @@ export default function ResourceManager({
     }
   }
 
-  async function remove(item: Item) {
-    if (!confirm(`Delete this ${singularLabel}? This cannot be undone.`)) return;
+  async function remove() {
+    const item = pendingDelete;
+    if (!item) return;
+    setDeleting(true);
     try {
       const res = await fetch(`${endpoint}/${item.id}`, { method: "DELETE" });
       if (!res.ok) throw new Error();
@@ -93,11 +98,24 @@ export default function ResourceManager({
       load();
     } catch {
       toast.error("Delete failed");
+    } finally {
+      setDeleting(false);
+      setPendingDelete(null);
     }
   }
 
   return (
     <div>
+      <ConfirmDialog
+        open={pendingDelete !== null}
+        title={`Delete this ${singularLabel}?`}
+        message="This cannot be undone."
+        confirmLabel="Delete"
+        tone="danger"
+        busy={deleting}
+        onConfirm={remove}
+        onCancel={() => setPendingDelete(null)}
+      />
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
@@ -148,7 +166,7 @@ export default function ResourceManager({
                       Edit
                     </button>
                     <button
-                      onClick={() => remove(item)}
+                      onClick={() => setPendingDelete(item)}
                       className="ml-4 font-medium text-gray-400 hover:text-red-600"
                     >
                       Delete
@@ -162,8 +180,8 @@ export default function ResourceManager({
       </div>
 
       {editing && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white p-6 shadow-xl">
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
+          <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-4 shadow-xl sm:p-6">
             <h2 className="text-lg font-semibold text-gray-900">
               {editing === "new" ? `Add ${singularLabel}` : `Edit ${singularLabel}`}
             </h2>

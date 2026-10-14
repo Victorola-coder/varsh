@@ -5,11 +5,14 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "../../context/auth-context";
 import { navSections } from "./nav";
+import ConfirmDialog from "@/app/components/admin/confirm-dialog";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
+  const [confirmingLogout, setConfirmingLogout] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
 
   const nav = (
     <nav className="flex h-full flex-col">
@@ -54,8 +57,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <div className="border-t border-gray-800 px-4 py-4">
         <p className="truncate text-sm text-gray-300">{user?.name || user?.email}</p>
         <button
-          onClick={logout}
-          className="mt-2 text-sm text-gray-400 hover:text-[#FF3600]"
+          onClick={() => setConfirmingLogout(true)}
+          className="mt-2 text-sm text-gray-400 transition-colors hover:text-[#FF3600]"
         >
           Sign out
         </button>
@@ -63,8 +66,28 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     </nav>
   );
 
+  async function confirmLogout() {
+    setLoggingOut(true);
+    try {
+      await logout();
+    } finally {
+      setLoggingOut(false);
+      setConfirmingLogout(false);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <ConfirmDialog
+        open={confirmingLogout}
+        title="Sign out?"
+        message="You'll need to sign in again to manage the site."
+        confirmLabel="Sign out"
+        tone="danger"
+        busy={loggingOut}
+        onConfirm={confirmLogout}
+        onCancel={() => setConfirmingLogout(false)}
+      />
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 hidden w-64 bg-gray-900 lg:block">
         {nav}
@@ -98,7 +121,7 @@ export default function Shell({ children }: { children: React.ReactNode }) {
           <span className="font-semibold text-gray-900">VARSH Admin</span>
         </header>
 
-        <main className="p-4 sm:p-6 lg:p-10">{children}</main>
+        <main className="p-4 sm:p-6 lg:p-8 xl:p-10">{children}</main>
       </div>
     </div>
   );
