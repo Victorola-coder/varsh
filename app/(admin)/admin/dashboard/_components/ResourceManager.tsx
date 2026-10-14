@@ -98,7 +98,7 @@ export default function ResourceManager({
 
   return (
     <div>
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
           {description && (
@@ -107,13 +107,13 @@ export default function ResourceManager({
         </div>
         <button
           onClick={openCreate}
-          className="shrink-0 rounded-md bg-[#FF3600] px-4 py-2 text-sm font-medium text-white hover:bg-[#e13000]"
+          className="shrink-0 self-start rounded-full bg-[#FF3600] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#e13000] sm:self-auto"
         >
           + Add {singularLabel}
         </button>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-lg border border-gray-200 bg-white">
+      <div className="mt-6 overflow-x-auto rounded-lg border border-gray-200 bg-white">
         {loading ? (
           <div className="p-8 text-center text-sm text-gray-400">Loading…</div>
         ) : items.length === 0 ? (
@@ -121,7 +121,7 @@ export default function ResourceManager({
             No {singularLabel}s yet. Click “Add {singularLabel}” to create one.
           </div>
         ) : (
-          <table className="w-full text-left text-sm">
+          <table className="w-full min-w-[36rem] text-left text-sm">
             <thead className="border-b border-gray-200 bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
               <tr>
                 {columns.map((c) => (

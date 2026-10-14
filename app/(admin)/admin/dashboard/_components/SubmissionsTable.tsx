@@ -38,7 +38,7 @@ export default function SubmissionsTable({
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">{title}</h1>
           {description && <p className="mt-1 text-sm text-gray-500">{description}</p>}
@@ -54,7 +54,7 @@ export default function SubmissionsTable({
         ) : rows.length === 0 ? (
           <div className="p-8 text-center text-sm text-gray-400">Nothing here yet.</div>
         ) : (
-          <table className="w-full text-left text-sm">
+          <table className="w-full min-w-[36rem] text-left text-sm">
             <thead className="border-b border-gray-200 bg-gray-50 text-xs uppercase tracking-wide text-gray-500">
               <tr>
                 {columns.map((c) => (

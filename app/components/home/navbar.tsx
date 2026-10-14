@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "../ui";
 import Image from "next/image";
 // import { Logo } from "../svgs";
 import logo from "@/public/images/logo.svg";
@@ -91,7 +90,7 @@ export default function Navbar() {
       variants={fadeIn}
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm"
     >
-      <nav className="flex items-center justify-between px-4 md:px-8 lg:px-[55px] py-4 md:py-5 lg:py-[45px]">
+      <nav className="flex items-center justify-between px-4 md:px-8 lg:px-[55px] py-3.5 md:py-4 lg:py-5">
         <motion.div variants={slideIn}>
           <Link href="/" className="relative z-50">
             <Image
@@ -119,15 +118,19 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link href="/donate" className="ml-6">
-            <Button
-              variant="danger"
-              className={`md:w-[180px] ${
-                isActive("/donate") ? "bg-[#e13000]" : ""
-              }`}
+          <Link
+            href="/donate"
+            className={`ml-6 group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-bold text-white shadow-md shadow-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 active:scale-[0.97] ${
+              isActive("/donate") ? "bg-[#e13000]" : "bg-primary hover:bg-[#e13000]"
+            }`}
+          >
+            Donate
+            <span
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
             >
-              Donate
-            </Button>
+              &rarr;
+            </span>
           </Link>
         </div>
 
@@ -180,15 +183,15 @@ export default function Navbar() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/donate">
-                  <Button
-                    variant="danger"
-                    className={`w-full mt-4 ${
-                      isActive("/donate") ? "bg-[#e13000]" : ""
-                    }`}
-                  >
-                    Donate
-                  </Button>
+                <Link
+                  href="/donate"
+                  onClick={() => setIsOpened(false)}
+                  className={`mt-5 flex w-full items-center justify-center gap-1.5 rounded-full px-5 py-3 text-sm font-bold text-white transition-colors ${
+                    isActive("/donate") ? "bg-[#e13000]" : "bg-primary hover:bg-[#e13000]"
+                  }`}
+                >
+                  Donate
+                  <span aria-hidden>&rarr;</span>
                 </Link>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { getClubs } from "@/lib/content";
 
 export default async function ClubsPage() {
@@ -16,9 +17,18 @@ export default async function ClubsPage() {
             key={index}
             className="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
-            <div className="w-full h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-              {/* Replace with actual campus club logo or image */}
-              <div className="text-gray-500 font-medium">Club Image</div>
+            <div className="relative w-full h-40 bg-gray-200 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+              {club.imageUrl ? (
+                <Image
+                  src={club.imageUrl}
+                  alt={club.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="text-gray-500 font-medium">Club Image</div>
+              )}
             </div>
             <h2 className="text-xl font-bold mb-3">
               {club.name}
