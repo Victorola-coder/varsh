@@ -4,6 +4,20 @@ import BlogList from "@/app/components/blog/blog-list";
 import NewsletterForm from "@/app/components/forms/newsletter-form";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Articles and resources from VARSH Foundation on consent, supporting survivors, advocacy and campus safety.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — VARSH Foundation",
+    description: "Articles and resources from VARSH Foundation on consent, supporting survivors, advocacy and campus safety.",
+    url: "/blog",
+    type: "website",
+  },
+};
+
 export default async function BlogPage() {
   const posts = await getBlogPosts();
 

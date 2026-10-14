@@ -2,6 +2,20 @@ import React from "react";
 import Image from "next/image";
 import { getClubs } from "@/lib/content";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Campus Clubs",
+  description: "VARSH Foundation campus clubs across Nigerian universities, and how to start one at your institution.",
+  alternates: { canonical: "/clubs" },
+  openGraph: {
+    title: "Campus Clubs — VARSH Foundation",
+    description: "VARSH Foundation campus clubs across Nigerian universities, and how to start one at your institution.",
+    url: "/clubs",
+    type: "website",
+  },
+};
+
 export default async function ClubsPage() {
   const clubs = await getClubs();
 
@@ -133,12 +147,12 @@ export default async function ClubsPage() {
         </p>
         <div className="bg-white p-6 rounded-lg">
           <h3 className="text-xl font-medium mb-4">
-            To start a club, you'll need:
+            To start a club, you&apos;ll need:
           </h3>
           <ul className="list-disc pl-6 space-y-2 mb-6">
             <li>A minimum of 5 dedicated students</li>
             <li>A faculty advisor (recommended)</li>
-            <li>Commitment to VARSH Foundation's vision and mission</li>
+            <li>Commitment to VARSH Foundation&apos;s vision and mission</li>
             <li>Willingness to organize awareness activities on campus</li>
           </ul>
           <button className="bg-[#252A34] text-white py-3 px-6 rounded-md hover:bg-[#1a1e24] transition-colors">

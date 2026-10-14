@@ -53,7 +53,15 @@ const withOrder = <T extends object>(items: T[]) =>
   items.map((item, i) => ({ ...item, order: i + 1 }));
 
 async function main() {
-  // --- Default admin (CHANGE THIS PASSWORD AFTER FIRST LOGIN) -------------
+  // --- Default admin ------------------------------------------------------
+  // "admin123" is a documented default and must never reach a deployed site,
+  // so refuse to fall back to it outside development.
+  if (!process.env.ADMIN_PASSWORD && process.env.NODE_ENV === "production") {
+    throw new Error(
+      "ADMIN_PASSWORD must be set when seeding a production database. " +
+        "Generate one (e.g. `openssl rand -base64 24`) and set it in the environment."
+    );
+  }
   const password = await hash(process.env.ADMIN_PASSWORD ?? "admin123", 10);
   const admin = await prisma.user.upsert({
     where: { email: process.env.ADMIN_EMAIL ?? "admin@varshfoundation.org" },

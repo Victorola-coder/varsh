@@ -1,6 +1,20 @@
 import React from "react";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Get Involved",
+  description: "Volunteer, become a member, join a campus club or partner with VARSH Foundation.",
+  alternates: { canonical: "/get-involved" },
+  openGraph: {
+    title: "Get Involved — VARSH Foundation",
+    description: "Volunteer, become a member, join a campus club or partner with VARSH Foundation.",
+    url: "/get-involved",
+    type: "website",
+  },
+};
+
 export default function GetInvolvedPage() {
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
@@ -47,7 +61,7 @@ export default function GetInvolvedPage() {
           </p>
           <div className="space-y-4">
             <h3 className="text-xl font-medium">
-              As a community member, you'll receive:
+              As a community member, you&apos;ll receive:
             </h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>Regular updates on our projects and initiatives</li>
@@ -192,7 +206,7 @@ export default function GetInvolvedPage() {
         <div className="bg-[#FF360010] p-6 md:p-8 rounded-lg shadow-md text-center">
           <p className="mb-6 max-w-3xl mx-auto">
             If you have questions about getting involved with VARSH Foundation,
-            we're here to help. Reach out to us or visit our FAQs page for more
+            we&apos;re here to help. Reach out to us or visit our FAQs page for more
             information.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

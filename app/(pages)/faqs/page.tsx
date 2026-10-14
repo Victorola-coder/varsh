@@ -3,6 +3,20 @@ import Link from "next/link";
 import { getFaqs } from "@/lib/content";
 import type { FaqItem } from "@/lib/default-content";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQs",
+  description: "Answers about VARSH Foundation, support for survivors, membership, volunteering, partnerships and donations.",
+  alternates: { canonical: "/faqs" },
+  openGraph: {
+    title: "FAQs — VARSH Foundation",
+    description: "Answers about VARSH Foundation, support for survivors, membership, volunteering, partnerships and donations.",
+    url: "/faqs",
+    type: "website",
+  },
+};
+
 export default async function FaqsPage() {
   const faqs = await getFaqs();
 

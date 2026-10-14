@@ -27,7 +27,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://varshfoundation.org"),
-  title: "Varsh Foundation - Reach one, Reach all",
+  title: {
+    default: "Varsh Foundation - Reach one, Reach all",
+    // Per-page titles render as "About Us — VARSH Foundation".
+    template: "%s — VARSH Foundation",
+  },
   description:
     "Together for a safer, More equal world - Free from sexual abuse",
   applicationName: "Varsh Foundation",

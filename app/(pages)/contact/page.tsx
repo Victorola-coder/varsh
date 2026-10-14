@@ -5,6 +5,20 @@ import SocialLinks from "@/app/components/social-links";
 import ContactForm from "@/app/components/forms/contact-form";
 import NewsletterForm from "@/app/components/forms/newsletter-form";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "Get in touch with VARSH Foundation — send a message, find our email and address, or follow us on social media.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Us — VARSH Foundation",
+    description: "Get in touch with VARSH Foundation — send a message, find our email and address, or follow us on social media.",
+    url: "/contact",
+    type: "website",
+  },
+};
+
 export default async function ContactPage() {
   const contact = await getContact();
 
@@ -15,7 +29,7 @@ export default async function ContactPage() {
           Contact Us
         </h1>
         <p className="text-base md:text-lg text-center max-w-3xl mx-auto">
-          Have questions or need assistance? We're here to help. Feel free to
+          Have questions or need assistance? We&apos;re here to help. Feel free to
           reach out to us through any of the methods below.
         </p>
       </section>
@@ -142,7 +156,7 @@ export default async function ContactPage() {
         </h2>
         <p className="text-center mb-8">
           Find answers to common questions about VARSH Foundation and our work.
-          If you don't find what you're looking for, please contact us directly.
+          If you don&apos;t find what you&apos;re looking for, please contact us directly.
         </p>
         <div className="text-center">
           <Link

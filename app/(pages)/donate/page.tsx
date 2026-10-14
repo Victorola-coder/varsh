@@ -2,6 +2,20 @@ import React from "react";
 import DonateForm from "@/app/components/forms/donate-form";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Donate",
+  description: "Support VARSH Foundation's work to end sexual abuse and gender-based violence in Nigeria.",
+  alternates: { canonical: "/donate" },
+  openGraph: {
+    title: "Donate — VARSH Foundation",
+    description: "Support VARSH Foundation's work to end sexual abuse and gender-based violence in Nigeria.",
+    url: "/donate",
+    type: "website",
+  },
+};
+
 export default function DonatePage() {
 
   return (
@@ -27,7 +41,7 @@ export default function DonatePage() {
           <div className="bg-[#252A34] text-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4">Your Impact</h2>
             <p className="mb-6">
-              When you donate to VARSH Foundation, you're making a direct impact
+              When you donate to VARSH Foundation, you&apos;re making a direct impact
               on the lives of survivors and communities across Nigeria. Your
               support helps us:
             </p>

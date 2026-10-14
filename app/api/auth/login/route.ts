@@ -3,10 +3,15 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { createSession } from "@/lib/jwt";
 import { validateEnv } from "@/lib/env";
+import { rateLimit } from "@/lib/rate-limit";
 
 validateEnv();
 
 export async function POST(request: Request) {
+  // Brute-force guard: 10 attempts per IP per 5 minutes.
+  const limited = rateLimit(request, "login", { limit: 10, windowMs: 5 * 60_000 });
+  if (!limited.ok) return limited.response;
+
   try {
     const { email, password } = await request.json();
 

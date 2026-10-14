@@ -2,6 +2,20 @@ import React from "react";
 import Image from "next/image";
 import { getTeam } from "@/lib/content";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Meet the team, patrons and legal advisers behind VARSH Foundation's work against sexual and gender-based violence.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Us — VARSH Foundation",
+    description: "Meet the team, patrons and legal advisers behind VARSH Foundation's work against sexual and gender-based violence.",
+    url: "/about",
+    type: "website",
+  },
+};
+
 export default async function AboutPage() {
   const everyone = await getTeam();
   const team = everyone.filter((m) => m.group === "team");
@@ -24,7 +38,7 @@ export default async function AboutPage() {
             child abuse, gender-based violence and gender discrimination in
             society. We empower victims and hold offenders accountable through
             legal advocacy and community support. Our work focuses on key areas
-            such as child rights, women's empowerment, and the promotion of
+            such as child rights, women&apos;s empowerment, and the promotion of
             peace and security, with a strong commitment to justice and
             equality. We align our initiatives with the Sustainable Development
             Goals, particularly Goal 5 (Gender Equality), Goal 10 (Reduced

@@ -2,6 +2,20 @@ import React from "react";
 import Image from "next/image";
 import { getProjects } from "@/lib/content";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Projects",
+  description: "Reach Every Child, Girls Talk, Project Safe Communities and the other programmes VARSH Foundation runs across Nigeria.",
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Our Projects — VARSH Foundation",
+    description: "Reach Every Child, Girls Talk, Project Safe Communities and the other programmes VARSH Foundation runs across Nigeria.",
+    url: "/projects",
+    type: "website",
+  },
+};
+
 export default async function ProjectsPage() {
   const projects = await getProjects();
   const featured = projects.filter((p) => p.category !== "other");

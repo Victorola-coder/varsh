@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
+import { rateLimit } from "@/lib/rate-limit";
 
 /**
  * Records a donation *pledge*. There is no payment gateway wired up yet, so a
@@ -18,6 +19,9 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  const limited = rateLimit(req, "donate", { limit: 5, windowMs: 60_000 });
+  if (!limited.ok) return limited.response;
+
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) {
     return NextResponse.json(

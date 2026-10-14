@@ -1,6 +1,20 @@
 import React from "react";
 import FeedbackForm from "@/app/components/forms/feedback-form";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Feedback",
+  description: "Share your feedback and suggestions with VARSH Foundation.",
+  alternates: { canonical: "/feedback" },
+  openGraph: {
+    title: "Feedback — VARSH Foundation",
+    description: "Share your feedback and suggestions with VARSH Foundation.",
+    url: "/feedback",
+    type: "website",
+  },
+};
+
 export default function FeedbackPage() {
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">

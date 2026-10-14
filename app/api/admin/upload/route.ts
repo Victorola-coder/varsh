@@ -4,6 +4,7 @@ import { mkdir, writeFile } from "fs/promises";
 import path from "path";
 import sharp from "sharp";
 import { requireAdmin } from "@/lib/admin-auth";
+import { rateLimit } from "@/lib/rate-limit";
 
 /**
  * Admin image upload.
@@ -26,6 +27,9 @@ const MAX_EDGE = 2000;
 export async function POST(req: NextRequest) {
   const { response } = await requireAdmin();
   if (response) return response;
+
+  const limited = rateLimit(req, "upload", { limit: 30, windowMs: 60_000 });
+  if (!limited.ok) return limited.response;
 
   let form: FormData;
   try {
