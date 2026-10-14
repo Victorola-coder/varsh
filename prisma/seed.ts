@@ -27,6 +27,7 @@ import {
   projectsDefault,
   faqsDefault,
   clubsDefault,
+  blogPostsDefault,
 } from "../lib/default-content";
 
 dotenv.config();
@@ -106,6 +107,17 @@ async function main() {
 
   await ifEmpty(prisma.project.count(), () =>
     prisma.project.createMany({ data: withOrder(projectsDefault) })
+  );
+
+  await ifEmpty(prisma.blogPost.count(), () =>
+    prisma.blogPost.createMany({
+      data: withOrder(
+        blogPostsDefault.map((p) => ({
+          ...p,
+          date: p.date ? new Date(p.date) : null,
+        }))
+      ),
+    })
   );
 
   console.log("✓ Seed complete");

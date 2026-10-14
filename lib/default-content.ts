@@ -623,3 +623,79 @@ export const clubsDefault: CampusClubItem[] = [
           order: 12,
         },
       ];
+
+/** Articles listed on /blog. */
+export type BlogPostItem = {
+  title: string;
+  slug: string;
+  excerpt: string;
+  content?: string | null;
+  author: string | null;
+  category: string | null;
+  date: string | null;
+  image: string | null;
+  url: string | null;
+};
+
+export const blogPostsDefault: BlogPostItem[] = [
+  {
+    title: "Understanding Consent: A Comprehensive Guide",
+    slug: "understanding-consent-a-comprehensive-guide",
+    excerpt: "Consent is a fundamental aspect of healthy relationships. In this article, we explore what consent means, how to recognize it, and why it's important...",
+    author: "Hassanat Adebowale",
+    category: "Education",
+    date: "2024-04-15",
+    image: null,
+    url: null,
+  },
+  {
+    title: "Supporting Survivors: Best Practices",
+    slug: "supporting-survivors-best-practices",
+    excerpt: "When someone discloses their experience with sexual abuse, how you respond can make a significant difference. Here are some ways to provide support...",
+    author: "Ferosayemi Faith Ogunbona",
+    category: "Support",
+    date: "2024-03-22",
+    image: null,
+    url: null,
+  },
+  {
+    title: "The Impact of RECH in Nigerian Communities",
+    slug: "the-impact-of-rech-in-nigerian-communities",
+    excerpt: "Our Reach Every Child project has made significant strides in communities across Nigeria. This article highlights the impact and lessons learned...",
+    author: "Barnabas Benjamin-Iorguma",
+    category: "Project Spotlight",
+    date: "2024-02-10",
+    image: null,
+    url: null,
+  },
+  {
+    title: "Breaking the Silence: Why Reporting Matters",
+    slug: "breaking-the-silence-why-reporting-matters",
+    excerpt: "Many cases of sexual abuse go unreported due to fear, stigma, or lack of information. Here's why reporting is important and how to do it safely...",
+    author: "Aworanti Salvation Grace",
+    category: "Advocacy",
+    date: "2024-01-28",
+    image: null,
+    url: null,
+  },
+  {
+    title: "Teaching Children About Personal Boundaries",
+    slug: "teaching-children-about-personal-boundaries",
+    excerpt: "Educating children about personal boundaries is a crucial aspect of abuse prevention. Here are age-appropriate ways to discuss this important topic...",
+    author: "Abioye Ismat",
+    category: "Education",
+    date: "2023-12-12",
+    image: null,
+    url: null,
+  },
+  {
+    title: "Campus Safety: Creating Safer Learning Environments",
+    slug: "campus-safety-creating-safer-learning-environments",
+    excerpt: "Educational institutions should be safe spaces for all students. This article explores strategies for creating and maintaining safer campuses...",
+    author: "Shonibare Temitope Emmanuel",
+    category: "Campus Life",
+    date: "2023-11-05",
+    image: null,
+    url: null,
+  },
+];

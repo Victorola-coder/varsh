@@ -27,6 +27,7 @@ export const navSections: NavSection[] = [
       { href: `${base}/team`, label: "Team" },
       { href: `${base}/projects`, label: "Projects" },
       { href: `${base}/faqs`, label: "FAQs" },
+      { href: `${base}/blog`, label: "Blog" },
       { href: `${base}/clubs`, label: "Campus Clubs" },
     ],
   },

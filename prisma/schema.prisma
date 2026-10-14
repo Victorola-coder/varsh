@@ -208,6 +208,26 @@ model Project {
   updatedAt DateTime  @updatedAt
 }
 
+/// Articles listed on /blog.
+model BlogPost {
+  id        String    @id @default(cuid())
+  title     String
+  slug      String    @unique
+  excerpt   String
+  /// Long-form body, HTML. Optional: posts may just link out to Medium.
+  content   String?
+  image     String?
+  author    String?
+  category  String?
+  /// External canonical link (e.g. the Medium post), if the article lives off-site.
+  url       String?
+  date      DateTime?
+  order     Int       @default(0)
+  published Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
 /// Frequently asked questions.
 model Faq {
   id        String   @id @default(cuid())

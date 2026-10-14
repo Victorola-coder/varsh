@@ -8,6 +8,7 @@ import {
   teamMemberSchema,
   projectSchema,
   faqSchema,
+  blogPostSchema,
   campusClubSchema,
 } from "./content-schemas";
 
@@ -29,6 +30,7 @@ export const resources: Record<string, ResourceConfig> = {
   team: { model: prisma.teamMember, schema: teamMemberSchema },
   projects: { model: prisma.project, schema: projectSchema },
   faqs: { model: prisma.faq, schema: faqSchema },
+  blog: { model: prisma.blogPost, schema: blogPostSchema },
   clubs: { model: prisma.campusClub, schema: campusClubSchema },
 };
 

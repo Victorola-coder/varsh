@@ -66,6 +66,20 @@ export const projectSchema = z.object({
   published,
 });
 
+export const blogPostSchema = z.object({
+  title: z.string().min(1),
+  slug,
+  excerpt: z.string().min(1),
+  content: z.string().optional().nullable(),
+  image: z.string().optional().nullable(),
+  author: z.string().optional().nullable(),
+  category: z.string().optional().nullable(),
+  url: z.string().optional().nullable(),
+  date: z.coerce.date().optional().nullable(),
+  order,
+  published,
+});
+
 export const faqSchema = z.object({
   question: z.string().min(1),
   answer: z.string().min(1),

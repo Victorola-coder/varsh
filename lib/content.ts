@@ -13,6 +13,7 @@ import {
   projectsDefault,
   faqsDefault,
   clubsDefault,
+  blogPostsDefault,
   type Hero,
   type MoreBand,
   type About,
@@ -25,6 +26,7 @@ import {
   type ProjectItem,
   type FaqItem,
   type CampusClubItem,
+  type BlogPostItem,
 } from "./default-content";
 
 /**
@@ -191,4 +193,17 @@ export const getClubs = cached(
       clubsDefault
     ),
   "clubs"
+);
+
+export const getBlogPosts = cached(
+  () =>
+    collection<BlogPostItem>(
+      () =>
+        prisma.blogPost.findMany({
+          where: { published: true },
+          orderBy: [{ order: "asc" }, { date: "desc" }],
+        }),
+      blogPostsDefault
+    ),
+  "blog"
 );
