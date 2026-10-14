@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { randomBytes } from "crypto";
 import { mkdir, writeFile } from "fs/promises";
 import path from "path";
+import { put } from "@vercel/blob";
 import sharp from "sharp";
 import { requireAdmin } from "@/lib/admin-auth";
 import { rateLimit } from "@/lib/rate-limit";
@@ -14,9 +15,13 @@ import { rateLimit } from "@/lib/rate-limit";
  * 2000px on the longest edge and re-encoded to WebP. A typical phone photo
  * lands around 100-200 KB.
  *
- * Files are written to public/uploads. That works locally and on any host with
- * a persistent disk, but NOT on a read-only/ephemeral serverless filesystem —
- * move this to object storage before deploying somewhere like that.
+ * Storage has two paths, because Vercel's filesystem is read-only at runtime:
+ *   - BLOB_READ_WRITE_TOKEN set  -> Vercel Blob (production)
+ *   - otherwise                  -> public/uploads (local dev, or any host
+ *                                   with a persistent disk)
+ * Create a Blob store in the Vercel dashboard and the token is injected
+ * automatically; without it, uploads on Vercel would appear to succeed and
+ * then vanish on the next deploy.
  */
 export const runtime = "nodejs";
 
@@ -87,10 +92,22 @@ export async function POST(req: NextRequest) {
       .slice(0, 40) || "image";
   const filename = `${stem}-${randomBytes(4).toString("hex")}.webp`;
 
+  let url: string;
   try {
-    const dir = path.join(process.cwd(), "public", "uploads");
-    await mkdir(dir, { recursive: true });
-    await writeFile(path.join(dir, filename), output);
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      const blob = await put(`uploads/${filename}`, output, {
+        access: "public",
+        contentType: "image/webp",
+        // The filename already carries a random suffix.
+        addRandomSuffix: false,
+      });
+      url = blob.url;
+    } else {
+      const dir = path.join(process.cwd(), "public", "uploads");
+      await mkdir(dir, { recursive: true });
+      await writeFile(path.join(dir, filename), output);
+      url = `/uploads/${filename}`;
+    }
   } catch (err) {
     console.error("Image write failed:", err);
     return NextResponse.json(
@@ -100,7 +117,7 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({
-    url: `/uploads/${filename}`,
+    url,
     width,
     height,
     bytes: output.length,

@@ -380,6 +380,26 @@ export const faqsDefault: FaqItem[] = [
     answer: "We're here to help and answer your questions through several channels:",
     category: "Staying Connected",
   },
+  {
+    question: "Is my donation tax-deductible?",
+    answer: "VARSH Foundation is a registered non-profit organization in Nigeria. Please consult with your tax advisor about the tax implications of your donation.",
+    category: "Donations",
+  },
+  {
+    question: "How will my donation be used?",
+    answer: "Your donation will support our programs and initiatives focused on sexual abuse prevention, survivor support, and community education.",
+    category: "Donations",
+  },
+  {
+    question: "Can I make a recurring donation?",
+    answer: "Yes, you can choose to make a monthly or annual recurring donation to provide consistent support for our work.",
+    category: "Donations",
+  },
+  {
+    question: "Will I receive a receipt for my donation?",
+    answer: "Yes, you will receive a receipt via email for your donation. If you need additional documentation, please contact us.",
+    category: "Donations",
+  },
 ];
 
 /** Projects and initiatives shown on /projects. */
@@ -725,4 +745,54 @@ export const contactDefault: ContactInfo = {
   instagram: "",
   youtube: "",
   linkedin: "",
+};
+
+// ---------------------------------------------------------------------------
+// Donate page
+// ---------------------------------------------------------------------------
+
+export type DonateContent = {
+  intro: string;
+  impact: string[];
+  bankName: string;
+  accountName: string;
+  accountNumber: string;
+  inKind: string;
+  corporate: string;
+};
+
+export const donateDefault: DonateContent = {
+  intro:
+    "Your support helps us prevent sexual abuse, stand with survivors, and build safer communities across Nigeria.",
+  impact: [
+    "Educate children and youth about consent and boundaries",
+    "Support survivors with counseling and legal advocacy",
+    "Train volunteers to lead prevention programs",
+    "Organize awareness campaigns in communities",
+    "Create educational materials and resources",
+    "Provide safe spaces for survivors to share their stories",
+  ],
+  bankName: "United Bank of Africa (UBA)",
+  accountName: "Voices Against Rape and sexual harrassment Foundation",
+  accountNumber: "1026410129",
+  inKind:
+    "We also accept in-kind donations such as books, educational materials, and other resources. Please contact us to learn more about our current needs.",
+  corporate:
+    "We welcome partnerships with organisations that share our commitment to ending sexual and gender-based violence. Get in touch to discuss how we can work together.",
+};
+
+// ---------------------------------------------------------------------------
+// Get Involved page
+// ---------------------------------------------------------------------------
+
+export type GetInvolvedContent = {
+  intro: string;
+  closing: string;
+};
+
+export const getInvolvedDefault: GetInvolvedContent = {
+  intro:
+    "There are many ways to contribute to our mission of creating a safer, more equal world free from sexual abuse. Join us in making a difference.",
+  closing:
+    "Still not sure where you fit? Reach out and we'll help you find the right way to get involved.",
 };

@@ -33,6 +33,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "placehold.co",
       },
+      {
+        // Vercel Blob public URLs, used by admin image uploads in production.
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+      },
     ],
   },
   async headers() {

@@ -1,4 +1,5 @@
 import React from "react";
+import { getDonate, getFaqs } from "@/lib/content";
 import DonateForm from "@/app/components/forms/donate-form";
 import Link from "next/link";
 
@@ -16,7 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DonatePage() {
+export default async function DonatePage() {
+  const [donate, faqs] = await Promise.all([getDonate(), getFaqs()]);
+  const donationFaqs = faqs.filter((f) => f.category === "Donations");
+
 
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
@@ -46,12 +50,9 @@ export default function DonatePage() {
               support helps us:
             </p>
             <ul className="space-y-2 list-disc pl-5">
-              <li>Educate children and youth about consent and boundaries</li>
-              <li>Support survivors with counseling and legal advocacy</li>
-              <li>Train volunteers to lead prevention programs</li>
-              <li>Organize awareness campaigns in communities</li>
-              <li>Create educational materials and resources</li>
-              <li>Provide safe spaces for survivors to share their stories</li>
+              {donate.impact.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </div>
 
@@ -67,13 +68,13 @@ export default function DonatePage() {
                 <div className="bg-white p-4 rounded-lg">
                   <div className="grid grid-cols-2 gap-2 text-sm">
                     <span className="font-medium">Bank Name:</span>
-                    <span>United Bank of Africa (UBA)</span>
+                    <span>{donate.bankName}</span>
                     <span className="font-medium">Account Name:</span>
                     <span>
-                      Voices Against Rape and sexual harrassment Foundation
+                      {donate.accountName}
                     </span>
                     <span className="font-medium">Account Number:</span>
-                    <span>1026410129</span>
+                    <span>{donate.accountNumber}</span>
                   </div>
                 </div>
               </div>
@@ -102,45 +103,12 @@ export default function DonatePage() {
           Donation FAQ
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-medium mb-2">
-              Is my donation tax-deductible?
-            </h3>
-            <p>
-              VARSH Foundation is a registered non-profit organization in
-              Nigeria. Please consult with your tax advisor about the tax
-              implications of your donation.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-medium mb-2">
-              How will my donation be used?
-            </h3>
-            <p>
-              Your donation will support our programs and initiatives focused on
-              sexual abuse prevention, survivor support, and community
-              education. We are committed to transparency and responsible use of
-              funds.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-medium mb-2">
-              Can I make a recurring donation?
-            </h3>
-            <p>
-              Yes, you can choose to make a monthly or annual recurring donation
-              to provide consistent support for our work.
-            </p>
-          </div>
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-xl font-medium mb-2">
-              Will I receive a receipt for my donation?
-            </h3>
-            <p>
-              Yes, you will receive a receipt via email for your donation. If
-              you need additional documentation, please contact us.
-            </p>
-          </div>
+          {donationFaqs.map((faq, i) => (
+            <div key={i} className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-xl font-medium mb-2">{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
         </div>
       </section>
 

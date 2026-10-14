@@ -15,6 +15,8 @@ import {
   clubsDefault,
   blogPostsDefault,
   contactDefault,
+  donateDefault,
+  getInvolvedDefault,
   type Hero,
   type MoreBand,
   type About,
@@ -29,6 +31,8 @@ import {
   type CampusClubItem,
   type BlogPostItem,
   type ContactInfo,
+  type DonateContent,
+  type GetInvolvedContent,
 } from "./default-content";
 
 /**
@@ -213,4 +217,14 @@ export const getBlogPosts = cached(
 export const getContact = cached(
   () => singleton<ContactInfo>("contact", contactDefault),
   "contact"
+);
+
+export const getDonate = cached(
+  () => singleton<DonateContent>("donate", donateDefault),
+  "donate"
+);
+
+export const getInvolved = cached(
+  () => singleton<GetInvolvedContent>("getInvolved", getInvolvedDefault),
+  "getInvolved"
 );

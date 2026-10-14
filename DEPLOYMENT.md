@@ -36,11 +36,14 @@ never clobbered.
 
 ## Known limitations
 
-**Uploads are written to `public/uploads`.** That works locally and on any host
-with a persistent disk. It does **not** survive a read-only or ephemeral
-serverless filesystem (e.g. Vercel), where uploaded images vanish on the next
-deploy. Move `app/api/admin/upload/route.ts` to object storage before deploying
-to such a host.
+**Uploads need a Vercel Blob store in production.** `app/api/admin/upload`
+writes to Vercel Blob when `BLOB_READ_WRITE_TOKEN` is present, and falls back
+to `public/uploads` otherwise. Vercel's filesystem is read-only at runtime, so
+without the store uploads would appear to succeed and then vanish.
+
+Create one in the Vercel dashboard (Storage -> Blob); the token is injected
+into the project automatically. `next.config.js` already allows
+`*.public.blob.vercel-storage.com` for `next/image`.
 
 **Rate limiting is in-process.** `lib/rate-limit.ts` keeps counters in memory,
 so the budget is per instance and does not hold across horizontal scaling.

@@ -29,6 +29,8 @@ import {
   clubsDefault,
   blogPostsDefault,
   contactDefault,
+  donateDefault,
+  getInvolvedDefault,
 } from "../lib/default-content";
 
 dotenv.config();
@@ -81,6 +83,8 @@ async function main() {
   await ensureContent("about", aboutDefault);
   await ensureContent("newsletter", newsletterDefault);
   await ensureContent("contact", contactDefault);
+  await ensureContent("donate", donateDefault);
+  await ensureContent("getInvolved", getInvolvedDefault);
 
   // --- Collections (seed only when empty) ---------------------------------
   await ifEmpty(prisma.initiative.count(), () =>
@@ -113,6 +117,16 @@ async function main() {
 
   await ifEmpty(prisma.faq.count(), () =>
     prisma.faq.createMany({ data: withOrder(faqsDefault) })
+  );
+
+  // The donate page's FAQs live in the same table under their own category.
+  // Seeded separately because the table may already hold the general ones.
+  await ifEmpty(prisma.faq.count({ where: { category: "Donations" } }), () =>
+    prisma.faq.createMany({
+      data: faqsDefault
+        .filter((f) => f.category === "Donations")
+        .map((f, i) => ({ ...f, order: 100 + i })),
+    })
   );
 
   await ifEmpty(prisma.project.count(), () =>

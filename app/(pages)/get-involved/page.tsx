@@ -1,4 +1,5 @@
 import React from "react";
+import { getInvolved } from "@/lib/content";
 import Link from "next/link";
 
 import type { Metadata } from "next";
@@ -15,7 +16,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GetInvolvedPage() {
+export default async function GetInvolvedPage() {
+  const content = await getInvolved();
+
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
       <section className="mb-16">
@@ -23,9 +26,7 @@ export default function GetInvolvedPage() {
           Get Involved
         </h1>
         <p className="text-base md:text-lg text-center max-w-3xl mx-auto">
-          There are many ways to contribute to our mission of creating a safer,
-          more equal world free from sexual abuse. Join us in making a
-          difference.
+          {content.intro}
         </p>
       </section>
 

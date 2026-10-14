@@ -148,10 +148,27 @@ export const contactSchema = z.object({
   linkedin: z.string().optional(),
 });
 
+export const donateSchema = z.object({
+  intro: z.string().min(1),
+  impact: z.array(z.string()).default([]),
+  bankName: z.string().optional(),
+  accountName: z.string().optional(),
+  accountNumber: z.string().optional(),
+  inKind: z.string().optional(),
+  corporate: z.string().optional(),
+});
+
+export const getInvolvedSchema = z.object({
+  intro: z.string().min(1),
+  closing: z.string().optional(),
+});
+
 export const singletonSchemas: Record<string, z.ZodTypeAny> = {
   hero: heroSchema,
   more: moreSchema,
   about: aboutSchema,
   newsletter: newsletterSchema,
   contact: contactSchema,
+  donate: donateSchema,
+  getInvolved: getInvolvedSchema,
 };

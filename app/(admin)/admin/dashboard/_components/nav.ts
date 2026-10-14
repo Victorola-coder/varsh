@@ -16,6 +16,8 @@ export const navSections: NavSection[] = [
       { href: `${base}/about`, label: "About / Story" },
       { href: `${base}/newsletter`, label: "Newsletter" },
       { href: `${base}/contact-info`, label: "Contact Details" },
+      { href: `${base}/donate-page`, label: "Donate Page" },
+      { href: `${base}/get-involved-page`, label: "Get Involved Page" },
     ],
   },
   {

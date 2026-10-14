@@ -18,7 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default async function FaqsPage() {
-  const faqs = await getFaqs();
+  // The "Donations" category is rendered on /donate instead.
+  const faqs = (await getFaqs()).filter((f) => f.category !== "Donations");
 
   // Group by category, preserving the order the questions come back in so the
   // admin's ordering drives both the sections and the questions inside them.
