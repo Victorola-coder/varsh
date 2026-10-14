@@ -4,52 +4,107 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const SUGGESTIONS: { href: string; label: string }[] = [
+  { href: "/projects", label: "Our Projects" },
+  { href: "/clubs", label: "Campus Clubs" },
+  { href: "/about", label: "About Us" },
+  { href: "/faqs", label: "FAQs" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function NotFound() {
   return (
-    <>
-      <section className="overflow-hidden mx-auto relative min-h-[100vh]">
-        <div className="absolute z-10 right-0 left-0 top-[140px] md:top-5">
-          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#000000]/60 to-[#D9D9D900] text-center">
-            404
-          </h2>
-        </div>
-        <div className="absolute -z-50 right-0 left-0 top-[145px] md:-top-4">
-          <h2 className="text-[262.916px] lg:text-[547.559px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#000000]/60 to-[#D9D9D900] text-center">
-            404
-          </h2>
-        </div>
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-dark px-4 py-24">
+      {/* Brand glow, matching the hero and admin login treatment. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-1/4 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px]"
+      />
 
-        <div className="mt-[200px] md:mt-[100px] relative">
-          <p className="absolute top-0 left-0 right-0 text-[100.999px] lg:text-[200.477px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-transparent from-[#FFFFFF03]/40 to-[#D9D9D900] text-center">
-            404
-          </p>
-          <p className="absolute top-3 lg:top-6 left-0 right-0 text-[100.999px] lg:text-[200.477px] mx-auto font-semibold rotate-[-0.133deg] bg-gradient-to-r bg-clip-text text-[#28282866] from-[#FFFFFF66] to-[#D9D9D900] text-center">
-            404
-          </p>
-        </div>
+      <div className="relative z-10 flex w-full max-w-[640px] flex-col items-center text-center text-white">
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease }}
+          className="font-lato bg-gradient-to-b from-white to-white/25 bg-clip-text text-[112px] font-bold leading-none tracking-[-0.04em] text-transparent sm:text-[160px] md:text-[200px]"
+        >
+          404
+        </motion.h1>
 
-        <div className="mt-[340px] md:mt-[250px] lg:mt-[400px] text-center mx-auto">
-          <h3 className="text-[23px] font-satMed font-semibold">
-            oooops! chief..😢
-          </h3>
-          <p className="text-[#000000]/60 text-center mx-auto max-w-sm px-3 text-s font-medium">
-            {"We can't show the page you requested due to legal reasons."}
-          </p>
+        <motion.span
+          aria-hidden
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.6, ease, delay: 0.25 }}
+          className="mt-2 block h-[3px] w-16 origin-center rounded-full bg-primary"
+        />
 
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.12 }}
+          className="mt-8 text-2xl font-bold sm:text-3xl"
+        >
+          This page doesn&apos;t exist
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.2 }}
+          className="mt-3 max-w-[46ch] text-[15px] leading-relaxed text-white/70 sm:text-base"
+        >
+          The link may be broken or the page may have moved. Let&apos;s get you
+          back to the work that matters.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.3 }}
+          className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+        >
           <Link
             href="/"
-            className="relative z-40 cursor-pointer w-[142px] mt-4 md:mt-[27px] mx-auto block bg-gradient-to-l from-[#D9D9D9] to-[#D9D9D900] pt-0.5 pr-0.5"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-[#e13000] active:scale-[0.98]"
           >
-            <motion.button
-              whileTap={{ scale: 1.1 }}
-              whileHover={{ scale: 0.99 }}
-              className="bg-primary px-[22.8px] py-[14.85px] whitespace-nowrap text-[14.5px] font-medium"
-            >
-              Back to home
-            </motion.button>
+            Back to home
           </Link>
-        </div>
-      </section>
-    </>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 active:scale-[0.98]"
+          >
+            Report a problem
+            <span aria-hidden>&rarr;</span>
+          </Link>
+        </motion.div>
+
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+          aria-label="Popular pages"
+          className="mt-12 w-full border-t border-white/10 pt-8"
+        >
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40">
+            Or try one of these
+          </p>
+          <ul className="flex flex-wrap items-center justify-center gap-2">
+            {SUGGESTIONS.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="inline-block rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-primary hover:bg-primary/10 hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </motion.nav>
+      </div>
+    </section>
   );
 }

@@ -91,10 +91,13 @@ export const campusClubSchema = z.object({
 // --- Singleton (SiteContent) section shapes -------------------------------
 
 export const heroSchema = z.object({
+  eyebrow: z.string().optional(),
   heading: z.string().min(1),
   subheading: z.string().min(1),
   ctaLabel: z.string().min(1),
   ctaHref: z.string().min(1),
+  ctaLabel2: z.string().optional(),
+  ctaHref2: z.string().optional(),
   image: z.string().min(1),
 });
 

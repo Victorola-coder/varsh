@@ -5,10 +5,15 @@
  */
 
 export type Hero = {
+  /** Small pill above the headline. Optional. */
+  eyebrow?: string;
   heading: string;
   subheading: string;
   ctaLabel: string;
   ctaHref: string;
+  /** Optional secondary (ghost) call to action. */
+  ctaLabel2?: string;
+  ctaHref2?: string;
   image: string;
 };
 
@@ -35,10 +40,13 @@ export type Newsletter = {
 };
 
 export const heroDefault: Hero = {
+  eyebrow: "Feminist-led · Youth-driven · Since 2019",
   heading: "Reach One, Reach All",
   subheading: "Together for a safer, More equal world - Free from sexual abuse",
   ctaLabel: "Donate",
   ctaHref: "/donate",
+  ctaLabel2: "Our Projects",
+  ctaHref2: "/projects",
   image: "/images/hero.png",
 };
 
