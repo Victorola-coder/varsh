@@ -27,9 +27,6 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://varshfoundation.org"),
-  icons: {
-    icon: "/images/logo.svg",
-  },
   title: "Varsh Foundation - Reach one, Reach all",
   description:
     "Together for a safer, More equal world - Free from sexual abuse",
