@@ -699,3 +699,30 @@ export const blogPostsDefault: BlogPostItem[] = [
     url: null,
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Contact details (shared by /contact and the footer)
+// ---------------------------------------------------------------------------
+
+export type ContactInfo = {
+  email: string;
+  /** Left blank by default: the hardcoded page shipped a placeholder number. */
+  phone?: string;
+  address?: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  youtube?: string;
+  linkedin?: string;
+};
+
+export const contactDefault: ContactInfo = {
+  email: "varshfoundationng@gmail.com",
+  phone: "",
+  address: "Ila-Orangun, Osun State, Nigeria",
+  facebook: "",
+  twitter: "",
+  instagram: "",
+  youtube: "",
+  linkedin: "",
+};

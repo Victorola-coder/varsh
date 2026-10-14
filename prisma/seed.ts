@@ -28,6 +28,7 @@ import {
   faqsDefault,
   clubsDefault,
   blogPostsDefault,
+  contactDefault,
 } from "../lib/default-content";
 
 dotenv.config();
@@ -71,6 +72,7 @@ async function main() {
   await ensureContent("more", moreDefault);
   await ensureContent("about", aboutDefault);
   await ensureContent("newsletter", newsletterDefault);
+  await ensureContent("contact", contactDefault);
 
   // --- Collections (seed only when empty) ---------------------------------
   await ifEmpty(prisma.initiative.count(), () =>

@@ -15,6 +15,7 @@ export const navSections: NavSection[] = [
       { href: `${base}/more`, label: "Intro band" },
       { href: `${base}/about`, label: "About / Story" },
       { href: `${base}/newsletter`, label: "Newsletter" },
+      { href: `${base}/contact-info`, label: "Contact Details" },
     ],
   },
   {

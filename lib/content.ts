@@ -14,6 +14,7 @@ import {
   faqsDefault,
   clubsDefault,
   blogPostsDefault,
+  contactDefault,
   type Hero,
   type MoreBand,
   type About,
@@ -27,6 +28,7 @@ import {
   type FaqItem,
   type CampusClubItem,
   type BlogPostItem,
+  type ContactInfo,
 } from "./default-content";
 
 /**
@@ -206,4 +208,9 @@ export const getBlogPosts = cached(
       blogPostsDefault
     ),
   "blog"
+);
+
+export const getContact = cached(
+  () => singleton<ContactInfo>("contact", contactDefault),
+  "contact"
 );

@@ -137,9 +137,21 @@ export const newsletterSchema = z.object({
   bullets: z.array(z.string().min(1)),
 });
 
+export const contactSchema = z.object({
+  email: z.string().email(),
+  phone: z.string().optional(),
+  address: z.string().optional(),
+  facebook: z.string().optional(),
+  twitter: z.string().optional(),
+  instagram: z.string().optional(),
+  youtube: z.string().optional(),
+  linkedin: z.string().optional(),
+});
+
 export const singletonSchemas: Record<string, z.ZodTypeAny> = {
   hero: heroSchema,
   more: moreSchema,
   about: aboutSchema,
   newsletter: newsletterSchema,
+  contact: contactSchema,
 };
