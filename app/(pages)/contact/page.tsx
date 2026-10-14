@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import ContactForm from "@/app/components/forms/contact-form";
+import NewsletterForm from "@/app/components/forms/newsletter-form";
 
 export default function ContactPage() {
   return (
@@ -17,95 +19,7 @@ export default function ContactPage() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
         <div className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-gray-700 font-medium mb-2"
-                >
-                  First Name*
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-gray-700 font-medium mb-2"
-                >
-                  Last Name*
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                  required
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                Email Address*
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                required
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                Subject*
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                required
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                Message*
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              className="bg-[#FF3600] text-white py-3 px-6 rounded-md font-medium hover:bg-[#e13000] transition-colors"
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
         </div>
 
         <div className="space-y-8">
@@ -298,20 +212,7 @@ export default function ContactPage() {
             Stay updated with our latest news, events, and initiatives by
             subscribing to our newsletter.
           </p>
-          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-[#FF3600] text-white px-6 py-3 rounded-md font-medium hover:bg-[#e13000] transition-colors whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
     </main>

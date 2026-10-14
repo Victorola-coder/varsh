@@ -1,4 +1,5 @@
 import React from "react";
+import NewsletterForm from "@/app/components/forms/newsletter-form";
 import Link from "next/link";
 
 export default function BlogPage() {
@@ -177,20 +178,7 @@ export default function BlogPage() {
             Stay updated with our latest articles, resources, and events by
             subscribing to our newsletter.
           </p>
-          <form className="flex flex-col md:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-grow px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-[#FF3600] text-white px-6 py-3 rounded-md font-medium hover:bg-[#e13000] transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm className="flex flex-col md:flex-row gap-4" />
         </div>
       </section>
     </main>

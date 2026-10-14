@@ -1,44 +1,8 @@
 import React from "react";
+import DonateForm from "@/app/components/forms/donate-form";
 import Link from "next/link";
 
 export default function DonatePage() {
-  const donationOptions = [
-    {
-      amount: "₦5,000",
-      description: "Can provide educational materials for 5 children",
-      impact:
-        "Help provide essential educational materials on consent and personal boundaries for children.",
-    },
-    {
-      amount: "₦10,000",
-      description: "Can support a community awareness campaign",
-      impact:
-        "Fund a community awareness campaign to educate more people about sexual abuse prevention.",
-    },
-    {
-      amount: "₦25,000",
-      description: "Can train 5 volunteers for school outreach",
-      impact:
-        "Help train our volunteers who conduct educational sessions in schools across Nigeria.",
-    },
-    {
-      amount: "₦50,000",
-      description: "Can fund a Girls Talk session",
-      impact:
-        "Support a Girls Talk session that connects young girls with mentors and role models.",
-    },
-    {
-      amount: "₦100,000",
-      description: "Can support a Walk Against Rape event",
-      impact:
-        "Help fund a community Walk Against Rape event to raise awareness and support survivors.",
-    },
-    {
-      amount: "Other",
-      description: "Choose your own amount",
-      impact: "Every contribution makes a difference, no matter the size.",
-    },
-  ];
 
   return (
     <main className="px-4 md:px-8 lg:px-12 py-10 md:py-[150px] max-w-[1200px] mx-auto">
@@ -56,75 +20,7 @@ export default function DonatePage() {
       <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6">Make a Donation</h2>
-          <div className="space-y-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {donationOptions.map((option, index) => (
-                <div
-                  key={index}
-                  className={`border-2 ${
-                    index === 0 ? "border-[#FF3600]" : "border-gray-200"
-                  } rounded-lg p-4 text-center cursor-pointer hover:border-[#FF3600] transition-colors`}
-                >
-                  <p className="font-bold text-xl mb-2">{option.amount}</p>
-                  <p className="text-sm text-gray-600">{option.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              <label
-                htmlFor="customAmount"
-                className="block text-gray-700 font-medium"
-              >
-                Custom Amount (₦)
-              </label>
-              <input
-                type="number"
-                id="customAmount"
-                name="customAmount"
-                placeholder="Enter amount"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              />
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-medium">Payment Frequency</h3>
-              <div className="flex gap-4">
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value="oneTime"
-                    className="mr-2 text-[#FF3600] focus:ring-[#FF3600]"
-                    defaultChecked
-                  />
-                  One-time
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value="monthly"
-                    className="mr-2 text-[#FF3600] focus:ring-[#FF3600]"
-                  />
-                  Monthly
-                </label>
-                <label className="flex items-center">
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value="annually"
-                    className="mr-2 text-[#FF3600] focus:ring-[#FF3600]"
-                  />
-                  Annually
-                </label>
-              </div>
-            </div>
-
-            <button className="w-full bg-[#FF3600] text-white py-3 rounded-md font-medium hover:bg-[#e13000] transition-colors">
-              Proceed to Payment
-            </button>
-          </div>
+          <DonateForm />
         </div>
 
         <div className="space-y-8">

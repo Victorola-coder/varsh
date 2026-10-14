@@ -1,4 +1,5 @@
 import React from "react";
+import FeedbackForm from "@/app/components/forms/feedback-form";
 
 export default function FeedbackPage() {
   return (
@@ -14,117 +15,7 @@ export default function FeedbackPage() {
       </section>
 
       <section className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md mb-16">
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label
-                htmlFor="firstName"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="lastName"
-                className="block text-gray-700 font-medium mb-2"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-gray-700 font-medium mb-2"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="feedbackType"
-              className="block text-gray-700 font-medium mb-2"
-            >
-              Feedback Type
-            </label>
-            <select
-              id="feedbackType"
-              name="feedbackType"
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              required
-            >
-              <option value="">Select a feedback type</option>
-              <option value="generalFeedback">General Feedback</option>
-              <option value="websiteFeedback">Website Feedback</option>
-              <option value="eventFeedback">Event Feedback</option>
-              <option value="projectFeedback">Project Feedback</option>
-              <option value="suggestion">Suggestion</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-gray-700 font-medium mb-2"
-            >
-              Comment or Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={6}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF3600]"
-              required
-            ></textarea>
-          </div>
-
-          <div className="flex items-start">
-            <input
-              type="checkbox"
-              id="subscribe"
-              name="subscribe"
-              className="mt-1 mr-2"
-            />
-            <label htmlFor="subscribe" className="text-gray-700">
-              I would like to receive updates about VARSH Foundation's
-              activities and events.
-            </label>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="bg-[#FF3600] text-white py-3 px-8 rounded-md font-medium hover:bg-[#e13000] transition-colors"
-            >
-              Submit Feedback
-            </button>
-          </div>
-        </form>
+        <FeedbackForm />
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
