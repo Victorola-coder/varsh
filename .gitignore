@@ -49,3 +49,6 @@ package-lock.json
 pnpm-lock.yaml
 
 generated/
+
+# Admin image uploads (runtime content, not source)
+/public/uploads

@@ -1,5 +1,7 @@
 "use client";
 
+import ImageField from "@/app/components/admin/image-field";
+
 export type FieldType =
   | "text"
   | "textarea"
@@ -130,24 +132,12 @@ export function FieldInput({
 
     case "image":
       return (
-        <div className="space-y-2">
-          <input
-            type="text"
-            required={field.required}
-            value={(value as string) ?? ""}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="/images/example.png"
-            className={inputClass}
-          />
-          {typeof value === "string" && value ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={value}
-              alt="preview"
-              className="h-16 w-16 rounded object-cover ring-1 ring-gray-200"
-            />
-          ) : null}
-        </div>
+        <ImageField
+          value={(value as string) ?? ""}
+          onChange={onChange}
+          required={field.required}
+          inputClass={inputClass}
+        />
       );
 
     default:
