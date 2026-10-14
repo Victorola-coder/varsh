@@ -174,7 +174,7 @@ export const teamDefault: TeamMemberItem[] = [
     name: "Chidiebere Nnadiegbulam",
     role: "Monitoring and Evaluation Officer",
     group: "team",
-    image: "/images/team/chidi.jpg",
+    image: "/images/team/chidi.JPG",
     bio: "Chidiebere Nnadiegbulam is an experienced geospatial professional known for his creativity and visualisation abilities. Over the past decade, he has significantly contributed to environmental sustainability and humanitarian efforts through dedicated mentorship at the International Federation of Surveyors (FIG) and environmental protection projects. Chidiebere is dedicated to driving innovations and making a lasting impact through cutting-edge geospatial technologies and community-focused initiatives. When not working, he enjoys exploring the wonders of God's creation in nature, which continually fuels his creativity and passion.",
   },
   {
@@ -195,7 +195,7 @@ export const teamDefault: TeamMemberItem[] = [
     name: "Dorcas Oluwatosin Ajala",
     role: "Director of Operations",
     group: "team",
-    image: "/images/team/dop.jpg",
+    image: "/images/team/dop.JPG",
     bio: "Dorcas Oluwatosin Ajala holds a degree in Public Health from Osun State University and is passionate about advocating against gender-based violence, as well as promoting youth, maternal, and child health. She is an active member of the VARSH Club at UNIOSUN and a dedicated volunteer with the VARSH Foundation. Beyond advocacy, Dorcas is also an entrepreneur who enjoys cooking, traveling, and connecting with like-minded people. Known for her inquisitive nature and love for teaching, she is always eager to learn, grow, and develop new skills. Her journey is deeply guided by her faith, which she credits as the foundation of her achievements.",
   },
 
@@ -242,7 +242,7 @@ export const teamDefault: TeamMemberItem[] = [
     name: "Sophia Orisaleye",
     role: "Law Enforcement Liaison",
     group: "legal",
-    image: "/images/team/sophia.jpg",
+    image: "/images/team/sophia.JPG",
     bio: "Orisaleye Sophia is a police officer and one of the founding members of VARSH, deeply committed to advocating for the rights of women and children. She uses her voice and writing to challenge rape, discrimination, and injustice, working powerfully behind the scenes as a background writer and advocate for change. In her personal time, she enjoys reading novels and writing, using her passion for storytelling to inspire awareness and amplify the voices of the marginalized.",
   },
   {
@@ -256,14 +256,14 @@ export const teamDefault: TeamMemberItem[] = [
     name: "Comfort Ayomide Komolafe",
     role: "Legal Adviser",
     group: "legal",
-    image: "/images/team/comfort.jpg",
+    image: "/images/team/comfort.JPG",
     bio: "Comfort Ayomide Komolafe is a dedicated and highly driven lawyer, with a passion for justice and human rights. Also, she is an Associate Member, Institute of Chartered Mediators and Conciliators, a recognized body for dispute resolution practitioners in Nigeria. Her work focuses on ensuring that survivors have access to justice, and that the Initiative's programs and advocacy efforts are grounded in strong legal frameworks.",
   },
   {
     name: "Akinkunmi Abolade",
     role: "Legal Adviser",
     group: "legal",
-    image: "/images/team/akinkunmi-legal.jpg",
+    image: "/images/team/akinkunmi-legal.JPG",
     bio: "Akinkunmi Abolade is a lawyer. He is passionate about sustainable development and poverty alleviation in Nigeria and Africa. As such, asides being able to advise businesses as it relates to commercial transactions, he is skilled in advising businesses on how such commercial transactions affect sustainability and human rights. He is passionate about human rights and believes that people should have the freedom to do whatever they desire as long as third parties are not affected. He advocates that laws should be made to promote gender equality and the world should be safer for women.",
   },
 ];

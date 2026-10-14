@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "../ui";
 import type { MoreBand } from "@/lib/default-content";
 import { moreDefault } from "@/lib/default-content";
@@ -7,11 +8,13 @@ export default function More({ more = moreDefault }: { more?: MoreBand }) {
   return (
     <div className="flex flex-col lg:flex-row mx-4 md:mx-[50px] mt-[40px] md:mt-[87px] items-center gap-[40px] lg:gap-[100px] lg:justify-between">
       <figure className="w-full lg:w-auto">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={more.image}
           alt="children"
+          width={800}
+          height={600}
           draggable={false}
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className="w-full h-auto"
         />
       </figure>

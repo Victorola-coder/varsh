@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import React from "react";
 import { CheckIcon } from "../svgs";
 import { motion } from "framer-motion";
@@ -75,11 +77,13 @@ export default function Varsh({
         whileHover={{ scale: 1.02 }}
         className="w-full lg:w-auto flex justify-center lg:justify-start"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={about.image}
           alt="children"
+          width={500}
+          height={500}
           draggable={false}
+          sizes="(max-width: 1024px) 100vw, 500px"
           className="w-full max-w-[500px] lg:w-auto h-auto"
         />
       </motion.figure>
