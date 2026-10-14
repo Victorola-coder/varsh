@@ -2,8 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../animations";
+import SectionHeading from "./section-heading";
 import type { ThematicAreaItem, ReachStatItem } from "@/lib/default-content";
 import { thematicAreasDefault, reachStatsDefault } from "@/lib/default-content";
 
@@ -19,16 +21,26 @@ function Cards({
   return (
     <motion.div
       variants={fadeIn}
-      whileHover={{ scale: 1.02 }}
-      className="w-full md:w-[340px] lg:w-[493px] px-4 md:px-[33px] py-[30px] rounded-[20px] border border-[#E5E5E5] bg-[#FFFFFF] flex flex-col items-center gap-4 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_12px_32px_-12px_rgba(255,54,0,0.25)]"
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 300, damping: 24 }}
+      className="group flex h-full flex-col items-center gap-4 rounded-[20px] border border-[#E5E5E5] bg-white px-6 py-8 md:px-8 md:py-9 text-center transition-colors duration-300 hover:border-primary/40 hover:shadow-[0_16px_40px_-18px_rgba(255,54,0,0.3)]"
     >
-      <figure className="w-[64px] h-[64px]">
-        <img src={icon} alt={title} className="w-full h-full object-contain" />
+      {/* Tinted plate behind the icon so the four cards read as a set even
+          though the icon artwork varies. */}
+      <figure className="flex h-[76px] w-[76px] items-center justify-center rounded-2xl bg-primary/5 transition-colors duration-300 group-hover:bg-primary/10">
+        <Image
+          src={icon}
+          alt=""
+          aria-hidden
+          width={44}
+          height={44}
+          className="h-11 w-11 object-contain"
+        />
       </figure>
-      <h4 className="text-[20px] md:text-[22px] lg:text-[25px] leading-[1.2] font-bold text-center">
+      <h3 className="text-[20px] md:text-[22px] font-bold leading-tight text-[#1D1D1D]">
         {title}
-      </h4>
-      <p className="text-[16px] md:text-[17px] lg:text-[18px] leading-[1.5] text-center text-[#4A4A4A]">
+      </h3>
+      <p className="text-[16px] md:text-[17px] leading-relaxed text-[#4A4A4A]">
         {content}
       </p>
     </motion.div>
@@ -45,14 +57,19 @@ function ReachCard({
   description: string;
 }) {
   return (
-    <motion.div variants={fadeIn} className="text-center">
-      <h4 className="text-[32px] md:text-[48px] lg:text-[56px] font-bold text-[#FF3600] mb-2">
+    <motion.div
+      variants={fadeIn}
+      className="rounded-2xl bg-white px-6 py-8 text-center shadow-[0_2px_16px_-8px_rgba(0,0,0,0.12)] ring-1 ring-black/[0.04]"
+    >
+      <p className="font-lato text-[38px] md:text-[48px] lg:text-[54px] font-bold leading-none tracking-[-0.02em] text-primary">
         {number}
-      </h4>
-      <h5 className="text-[18px] md:text-[20px] font-semibold text-[#252A34] mb-2">
+      </p>
+      <h3 className="mt-3 text-[17px] md:text-[18px] font-semibold text-[#252A34]">
         {label}
-      </h5>
-      <p className="text-[14px] md:text-[16px] text-[#4A4A4A]">{description}</p>
+      </h3>
+      <p className="mt-2 text-[14px] md:text-[15px] leading-relaxed text-[#4A4A4A]">
+        {description}
+      </p>
     </motion.div>
   );
 }
@@ -70,17 +87,16 @@ export default function Areas({
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="flex flex-col gap-[20px] mt-[56px] md:mt-[88px] lg:mt-[112px] items-center justify-center mx-4 md:mx-8 lg:mx-[50px]"
+        className="mt-[56px] md:mt-[88px] lg:mt-[112px] mx-4 md:mx-8 lg:mx-[50px]"
       >
-        <motion.h3
-          variants={fadeIn}
-          className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] md:leading-[52.08px] font-bold text-center px-4"
-        >
-          Our Thematic Areas
-        </motion.h3>
+        <SectionHeading
+          eyebrow="Where we focus"
+          title="Our Thematic Areas"
+          subtitle="The four pillars our programmes are built around."
+        />
         <motion.div
           variants={staggerContainer}
-          className="mt-[30px] md:mt-[69px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center justify-center gap-[18px] px-4"
+          className="mt-[30px] md:mt-[56px] grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6"
         >
           {areas.map((area, i) => (
             <Cards
@@ -93,24 +109,27 @@ export default function Areas({
         </motion.div>
       </motion.section>
 
-      {/* Our Reach Section */}
+      {/* Our Reach */}
       <motion.section
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="bg-[#F8F9FA] py-[60px] md:py-[100px] mt-[56px] md:mt-[88px] lg:mt-[112px]"
+        className="relative mt-[56px] md:mt-[88px] lg:mt-[112px] overflow-hidden bg-[#F8F9FA] py-[60px] md:py-[100px]"
       >
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <motion.h3
-            variants={fadeIn}
-            className="text-[28px] md:text-[36px] lg:text-[42px] leading-[1.2] font-bold text-center mb-[50px] md:mb-[80px]"
-          >
-            Our Reach
-          </motion.h3>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/5 blur-[100px]"
+        />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-8">
+          <SectionHeading
+            eyebrow="Our impact"
+            title="Our Reach"
+            subtitle="What the work has added up to so far."
+          />
 
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-[60px]"
+            className="mt-[40px] md:mt-[64px] grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
           >
             {stats.map((stat, i) => (
               <ReachCard
@@ -122,25 +141,34 @@ export default function Areas({
             ))}
           </motion.div>
 
-          <motion.div variants={fadeIn} className="text-center">
-            <h4 className="text-[20px] md:text-[24px] font-semibold text-[#252A34] mb-6">
+          <motion.div
+            variants={fadeIn}
+            className="mt-[48px] md:mt-[64px] flex flex-col items-center text-center"
+          >
+            <h3 className="text-[20px] md:text-[24px] font-bold text-[#252A34]">
               Join Our Mission
-            </h4>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <Link href="/get-involved#become-member">
-                <button className="bg-[#FF3600] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#e13000] transition-colors">
-                  Become a Member
-                </button>
+            </h3>
+            {/* One primary action, two quiet ones. These were three competing
+                buttons in three different shapes and colours. */}
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="/get-involved#become-member"
+                className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-[#e13000] active:scale-[0.98]"
+              >
+                Become a Member
               </Link>
-              <Link href="/get-involved#volunteers">
-                <button className="bg-transparent border-2 border-[#FF3600] text-[#FF3600] px-6 py-3 rounded-lg font-medium hover:bg-[#FF3600] hover:text-white transition-colors">
-                  Join as Volunteer
-                </button>
+              <Link
+                href="/get-involved#volunteers"
+                className="inline-flex items-center justify-center rounded-full border border-[#252A34]/20 px-7 py-3 text-sm font-semibold text-[#252A34] transition-all duration-300 hover:border-[#252A34] hover:bg-[#252A34] hover:text-white active:scale-[0.98]"
+              >
+                Join as Volunteer
               </Link>
-              <Link href="/#newsletter">
-                <button className="bg-[#252A34] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#1a1e26] transition-colors">
-                  Subscribe to Newsletter
-                </button>
+              <Link
+                href="/#newsletter"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-3 text-sm font-semibold text-[#252A34] underline-offset-4 transition-colors hover:text-primary hover:underline"
+              >
+                Subscribe to Newsletter
+                <span aria-hidden>&rarr;</span>
               </Link>
             </div>
           </motion.div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { CheckIcon } from "../svgs";
 import { motion } from "framer-motion";
+import SectionHeading from "./section-heading";
 import { fadeIn, slideIn, staggerContainer } from "../animations";
 import type { About, StrideItem } from "@/lib/default-content";
 import { aboutDefault, stridesDefault } from "@/lib/default-content";
@@ -38,23 +39,15 @@ export default function Varsh({
       className="flex flex-col lg:flex-row mx-4 md:mx-8 lg:mx-[50px] mt-[56px] md:mt-[88px] lg:mt-[112px] gap-8 lg:gap-[50px]"
     >
       <motion.div variants={slideIn} className="flex flex-col gap-4 md:gap-5">
-        <h2 className="text-[28px] md:text-[34px] lg:text-[40px] leading-[1.2] md:leading-[52px] font-semibold text-[#1D1D1D] text-center lg:text-left">
-          {about.title}
-          <motion.p
-            initial={{ width: 0 }}
-            whileInView={{ width: "20%" }}
-            transition={{ duration: 0.5 }}
-            className="h-[3px] bg-[#FF3600] mx-auto lg:mx-0 mt-2"
-          />
-        </h2>
+        <SectionHeading title={about.title} align="left" />
         <motion.p
           variants={fadeIn}
-          className="font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] md:leading-[40px] max-w-[807px] text-center lg:text-left"
+          className="font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[1.7] max-w-[807px]"
         >
           {about.story}
         </motion.p>
         <motion.div variants={staggerContainer} className="mt-2 md:mt-4">
-          <h4 className="font-normal text-[16px] md:text-[18px] lg:text-[20px] leading-[1.6] md:leading-[40px] max-w-[807px] text-center lg:text-left mb-4 md:mb-6">
+          <h4 className="font-semibold text-[17px] md:text-[19px] leading-[1.6] max-w-[807px] mb-4 md:mb-6 text-[#1D1D1D]">
             {about.stridesHeading}
           </h4>
           <div className="flex flex-col gap-4 md:gap-5 max-w-[734px]">
