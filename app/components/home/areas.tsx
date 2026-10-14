@@ -20,7 +20,7 @@ function Cards({
     <motion.div
       variants={fadeIn}
       whileHover={{ scale: 1.02 }}
-      className="w-full md:w-[340px] lg:w-[493px] px-4 md:px-[33px] py-[30px] rounded-[20px] border border-[#E5E5E5] bg-[#FFFFFF] flex flex-col items-center gap-4"
+      className="w-full md:w-[340px] lg:w-[493px] px-4 md:px-[33px] py-[30px] rounded-[20px] border border-[#E5E5E5] bg-[#FFFFFF] flex flex-col items-center gap-4 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_12px_32px_-12px_rgba(255,54,0,0.25)]"
     >
       <figure className="w-[64px] h-[64px]">
         <img src={icon} alt={title} className="w-full h-full object-contain" />
@@ -70,7 +70,7 @@ export default function Areas({
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="flex flex-col gap-[20px] mt-[40px] md:mt-[88px] items-center justify-center mx-4 md:mx-[53px]"
+        className="flex flex-col gap-[20px] mt-[56px] md:mt-[88px] lg:mt-[112px] items-center justify-center mx-4 md:mx-8 lg:mx-[50px]"
       >
         <motion.h3
           variants={fadeIn}
@@ -98,7 +98,7 @@ export default function Areas({
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="bg-[#F8F9FA] py-[60px] md:py-[100px] mt-[60px] md:mt-[100px]"
+        className="bg-[#F8F9FA] py-[60px] md:py-[100px] mt-[56px] md:mt-[88px] lg:mt-[112px]"
       >
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <motion.h3

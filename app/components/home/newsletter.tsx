@@ -48,7 +48,7 @@ export default function Newsletter({
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
-      className="mt-[60px] md:mt-[100px] relative overflow-hidden"
+      className="mt-[56px] md:mt-[88px] lg:mt-[112px] relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-[#FF3600]/10 to-[#FF3600]/5 z-0"></div>
 

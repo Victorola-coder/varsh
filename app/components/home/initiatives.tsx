@@ -9,10 +9,15 @@ export default function Initiatives({
   initiatives?: InitiativeItem[];
 }) {
   return (
-    <section className="mt-[50px] md:mt-[80px] lg:mt-[100px] mx-4 md:mx-[30px] lg:mx-[50px]">
+    <section className="mt-[56px] md:mt-[88px] lg:mt-[112px] mx-4 md:mx-8 lg:mx-[50px]">
       <h2 className="text-[28px] md:text-[34px] lg:text-[40px] leading-[1.2] font-semibold font-lato text-center text-[#000000]">
         Featured Initiatives
       </h2>
+      {/* Short brand rule, echoing the hero. */}
+      <span
+        aria-hidden
+        className="mx-auto mt-4 block h-[3px] w-14 rounded-full bg-primary"
+      />
       <div className="flex flex-col md:flex-row flex-wrap justify-center gap-[20px] md:gap-[17px] mt-[30px] md:mt-[45px] lg:mt-[64px]">
         {initiatives.map((initiative) => (
           <Card

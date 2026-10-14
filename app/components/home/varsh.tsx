@@ -35,7 +35,7 @@ export default function Varsh({
       initial="initial"
       whileInView="animate"
       viewport={{ once: true }}
-      className="flex flex-col lg:flex-row mx-4 md:mx-[30px] lg:mx-[53px] mt-[40px] md:mt-[70px] lg:mt-[100px] gap-8 lg:gap-[50px]"
+      className="flex flex-col lg:flex-row mx-4 md:mx-8 lg:mx-[50px] mt-[56px] md:mt-[88px] lg:mt-[112px] gap-8 lg:gap-[50px]"
     >
       <motion.div variants={slideIn} className="flex flex-col gap-4 md:gap-5">
         <h2 className="text-[28px] md:text-[34px] lg:text-[40px] leading-[1.2] md:leading-[52px] font-semibold text-[#1D1D1D] text-center lg:text-left">

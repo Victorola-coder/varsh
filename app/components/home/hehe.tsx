@@ -6,7 +6,7 @@ import { moreDefault } from "@/lib/default-content";
 
 export default function More({ more = moreDefault }: { more?: MoreBand }) {
   return (
-    <div className="flex flex-col lg:flex-row mx-4 md:mx-[50px] mt-[40px] md:mt-[87px] items-center gap-[40px] lg:gap-[100px] lg:justify-between">
+    <div className="flex flex-col lg:flex-row mx-4 md:mx-8 lg:mx-[50px] mt-[56px] md:mt-[88px] lg:mt-[112px] items-center gap-[40px] lg:gap-[100px] lg:justify-between">
       <figure className="w-full lg:w-auto">
         <Image
           src={more.image}
